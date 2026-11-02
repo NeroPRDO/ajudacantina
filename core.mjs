@@ -30,10 +30,10 @@ export function openingStatus(venue, date = new Date(), closures = []) {
   const current = venue.slots.find(([start,end]) => now.minutes >= toMinutes(start) && now.minutes < toMinutes(end));
   return { open: Boolean(current), next: current ? current[1] : venue.slots.find(([start]) => toMinutes(start) > now.minutes)?.[0] ?? null };
 }
-export function filterDishes(dishes, { query = '', category = 'all', onlyFavorites = false, favorites = [], sort = 'recent', ratings = {}, locale = 'pt-PT' } = {}) {
+export function filterDishes(dishes, { query = '', category = 'all', subtype = 'all', minRating = 0, onlyFavorites = false, favorites = [], sort = 'recent', ratings = {}, locale = 'pt-PT' } = {}) {
   const terms = normalize(query).split(/\s+/).filter(Boolean);
-  return dishes.filter(dish => (category === 'all' || dish.categories.includes(category)) && (!onlyFavorites || favorites.includes(dish.id)) && terms.every(term => normalize([dish.name, ...Object.values(dish.translations || {}), ...(dish.ingredients || []), ...(dish.tags || [])].join(' ')).includes(term)))
-    .sort((a,b) => sort === 'name' ? a.name.localeCompare(b.name,locale) : sort === 'rating' ? (ratings[b.id] || 0) - (ratings[a.id] || 0) || b.date.localeCompare(a.date) : b.date.localeCompare(a.date));
+  return dishes.filter(dish => (category === 'all' || dish.categories.includes(category)) && (subtype === 'all' || dish.subtypes?.includes(subtype)) && (ratings[dish.id] || 0) >= minRating && (!onlyFavorites || favorites.includes(dish.id)) && terms.every(term => normalize([dish.name, ...Object.values(dish.translations || {}), ...(dish.ingredients || []), ...(dish.tags || [])].join(' ')).includes(term)))
+    .sort((a,b) => sort === 'name' ? a.name.localeCompare(b.name,locale) : sort === 'rating' ? (ratings[b.id] || 0) - (ratings[a.id] || 0) || (b.date || '').localeCompare(a.date || '') : (b.date || '').localeCompare(a.date || ''));
 }
 export function cleanPreferences(raw, ids, site) {
   const valid = new Set(ids);

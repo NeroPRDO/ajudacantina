@@ -1,11 +1,14 @@
 import { normalize, moneyToCents, calculateBudget, lisbonParts, dateKey, isServiceDay, openingStatus, filterDishes, cleanPreferences } from './core.mjs';
+import { crowdForDay, averageIntensity } from './crowd.mjs';
 import { translate } from './i18n.js';
 
 const $ = selector => document.querySelector(selector);
 const $$ = selector => [...document.querySelectorAll(selector)];
 const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const storageKey = 'ajuda-cantina-v1';
-const categories = { all:'✳', meat:'◈', fish:'≈', vegetarian:'❋', pasta:'∿', soup:'◡', dessert:'◇' };
+const categories = { all:'🍽️', meat:'🍗', fish:'🐟', vegetarian:'🌱', eggs:'🥚', pasta:'🍝', soup:'🥣', dessert:'🍮', other:'🔎' };
+let subtype='all', minRating=0, pageLimit=24, crowdDay=lisbonParts().weekday;
+const subtypeKeys=['chicken','turkey','beef','pork','lamb','duck','tofu','soy','seitan','chickpeas','beans','mushrooms','vegetables','eggs','seafood','salmon','hake','cod','fillet','grilled','baked'];
 let dishes = [], site, prefs, route = 'catalog', category = 'all', search = '', sort = 'recent', deferredInstall, registration;
 let calendarMonth = lisbonParts().month, calendarYear = lisbonParts().year;
 let mealSelection = { lunch:true, dinner:false }, toastTimer, detailId;
@@ -42,7 +45,9 @@ function statusText(venue) {
 }
 function renderStatus() { if (site) $('#quick-status').textContent = statusText(site.venues[0]); }
 function renderFilters() {
-  $('#filters').innerHTML = Object.entries(categories).map(([key,symbol]) => `<button class="filter" data-category="${key}" aria-pressed="${category === key}"><span class="filter-symbol" aria-hidden="true">${symbol}</span>${t(key)}</button>`).join('');
+  const choices=dishes.filter(d=>category==='all'||d.categories.includes(category));
+  const available=subtypeKeys.filter(key=>choices.some(d=>d.subtypes?.includes(key)));
+  $('#filters').innerHTML = '<label for="category-select">'+t('categories')+'<select id="category-select">'+Object.entries(categories).map(([key,icon])=>'<option value="'+key+'" '+(category===key?'selected':'')+'>'+icon+' '+t(key)+'</option>').join('')+'</select></label><label for="subtype-select">'+t('refine')+'<select id="subtype-select"><option value="all">'+t('allTypes')+'</option>'+available.map(key=>'<option value="'+key+'" '+(subtype===key?'selected':'')+'>'+t(key)+'</option>').join('')+'</select></label><label for="rating-filter">'+t('myRating')+'<select id="rating-filter">'+[0,1,2,3,4,5].map(n=>'<option value="'+n+'" '+(minRating===n?'selected':'')+'>'+(n?'★ '+n+'+':t('allRatings'))+'</option>').join('')+'</select></label>';
 }
 function renderCatalog() {
   const favoriteView = route === 'favorites';
@@ -52,12 +57,14 @@ function renderCatalog() {
   $('#catalog-subtitle').textContent = t(favoriteView ? 'favoritesSubtitle' : 'catalogSubtitle');
   const count = favoriteView ? prefs.favorites.length : dishes.length;
   $('#catalog-total').textContent = `${count} ${t(count === 1 ? 'dish' : 'dishes')}`;
-  const visible = filterDishes(dishes,{query:search, category, onlyFavorites:favoriteView, favorites:prefs.favorites, sort, ratings:prefs.ratings, locale:prefs.locale});
+  const visible = filterDishes(dishes,{query:search, category, subtype, minRating, onlyFavorites:favoriteView, favorites:prefs.favorites, sort, ratings:prefs.ratings, locale:prefs.locale});
   $('#results-count').textContent = `${visible.length} ${t(visible.length === 1 ? 'result' : 'results')}`;
-  $('#dish-grid').innerHTML = visible.map(dish => {
+  $('#dish-grid').innerHTML = visible.slice(0,pageLimit).map(dish => {
     const name = escape(dishName(dish)); const favorite = prefs.favorites.includes(dish.id);
     return `<article class="dish-card"><div class="dish-image-wrap"><button class="dish-link" data-detail="${dish.id}" aria-label="${t('details')}: ${name}"><img src="${escape(dish.image)}" alt="${name} · ${escape(dish.credit)}" style="object-position:${escape(dish.imagePosition || 'center')}" width="480" height="640" loading="lazy" decoding="async"></button><span class="category-tag">${t(dish.categories[0])}</span><button class="favorite-btn" data-favorite="${dish.id}" aria-pressed="${favorite}" aria-label="${t(favorite ? 'favoriteRemove' : 'favoriteAdd')}: ${name}"><span aria-hidden="true">${favorite ? '♥' : '♡'}</span></button></div><div class="card-body"><h3><button class="card-title" data-detail="${dish.id}">${name}</button></h3><p class="card-description">${escape(dish.description[languageCode()] || dish.description.pt)}</p><div class="card-bottom"><span>${escape(dish.credit)}</span><span class="rating-small">${prefs.ratings[dish.id] ? `★ ${prefs.ratings[dish.id]}/5 · ${t('myRating')}` : t('noRating')}</span><span class="card-arrow" aria-hidden="true">↗</span></div></div></article>`;
   }).join('');
+  $('#load-more').hidden=visible.length<=pageLimit;
+  $('#load-more').textContent=t('loadMore').replace('24',String(Math.min(24,Math.max(0,visible.length-pageLimit))));
   $('#empty-state').hidden = visible.length > 0;
   $('#empty-description').textContent = t(favoriteView && !prefs.favorites.length ? 'emptyFavorites' : 'emptySearch');
   renderFilters();
@@ -76,7 +83,7 @@ function toggleFavorite(id) {
 function openDetail(id) {
   const dish = dishes.find(d => d.id === id); if (!dish) return; detailId = id;
   const name = dishName(dish), rated = prefs.ratings[id] || 0;
-  $('#detail-content').innerHTML = `<button class="dialog-close" data-close="detail-dialog" aria-label="${t('close')}">×</button><div class="detail-layout"><img class="detail-photo" src="${escape(dish.image)}" alt="${escape(name)} · ${escape(dish.credit)}"><div class="detail-text"><span class="count-pill">${dish.categories.map(c=>t(c)).join(' · ')}</span><h2 id="detail-title">${escape(name)}</h2>${name !== dish.name ? `<p>${t('originalName')}: <span lang="pt">${escape(dish.name)}</span></p>` : ''}<p>${escape(dish.description[languageCode()] || dish.description.pt)}</p><h3>${t('ingredients')}</h3><p class="recipe-note">${dish.verifiedRecipe && dish.ingredients?.length ? escape(dish.ingredients.join(', ')) + (dish.preparation ? `<br>${escape(dish.preparation)}` : '') : t('recipeUnknown')}</p><label class="rating-select" for="personal-rating"><strong>${t('personalRating')}</strong><select id="personal-rating">${[0,1,2,3,4,5].map(n=>`<option value="${n}" ${rated === n ? 'selected' : ''}>${n ? '★'.repeat(n) + ` · ${n} ${t('ratingStars')}` : t('noRating')}</option>`).join('')}</select></label><p class="help">${t('ratingHelp')}</p><button class="text-button" id="clear-rating">${t('clearRating')}</button><div class="detail-actions"><button id="detail-favorite" class="primary-button" aria-pressed="${prefs.favorites.includes(id)}">${t(prefs.favorites.includes(id) ? 'favoriteRemove' : 'favoriteAdd')}</button><a class="secondary-button" href="${escape(dish.source)}" target="_blank" rel="noopener noreferrer">${t('sourcePost')}</a></div><div class="detail-credit">${t('photoCredit')}: ${escape(dish.credit)}<br>${t('published')} ${dateLabel(dish.date)}</div></div></div>`;
+  $('#detail-content').innerHTML = `<button class="dialog-close" data-close="detail-dialog" aria-label="${t('close')}">×</button><div class="detail-layout"><img class="detail-photo" src="${escape(dish.image)}" alt="${escape(name)} · ${escape(dish.credit)}"><div class="detail-text"><span class="count-pill">${dish.categories.map(c=>t(c)).join(' · ')}</span><h2 id="detail-title">${escape(name)}</h2>${name !== dish.name ? `<p>${t('originalName')}: <span lang="pt">${escape(dish.name)}</span></p>` : ''}<p>${escape(dish.description[languageCode()] || dish.description.pt)}</p>${dish.verifiedRecipe && dish.ingredients?.length ? `<h3>${t('ingredients')}</h3><p>${escape(dish.ingredients.join(', '))}</p>` : ''}<p class="help">${t('communitySoon')}</p><label class="rating-select" for="personal-rating"><strong>${t('personalRating')}</strong><select id="personal-rating">${[0,1,2,3,4,5].map(n=>`<option value="${n}" ${rated === n ? 'selected' : ''}>${n ? '★'.repeat(n) + ` · ${n} ${t('ratingStars')}` : t('noRating')}</option>`).join('')}</select></label><p class="help">${t('ratingHelp')}</p><button class="text-button" id="clear-rating">${t('clearRating')}</button><div class="detail-actions"><button id="detail-favorite" class="primary-button" aria-pressed="${prefs.favorites.includes(id)}">${t(prefs.favorites.includes(id) ? 'favoriteRemove' : 'favoriteAdd')}</button><a class="secondary-button" href="${escape(dish.source)}" target="_blank" rel="noopener noreferrer">${t('sourcePost')}</a></div><div class="detail-credit">${t('photoCredit')}: ${escape(dish.credit)}<br>${dish.date ? t('published')+' '+dateLabel(dish.date) : t('unknownDate')}</div></div></div>`;
   if (!$('#detail-dialog').open) $('#detail-dialog').showModal();
 }
 function renderPlanner() {
@@ -122,8 +129,13 @@ function changeMonth(offset) {
   const next = new Date(Date.UTC(calendarYear,calendarMonth + offset,1)); calendarYear = next.getUTCFullYear(); calendarMonth = next.getUTCMonth();
   renderCalendar(); $(offset > 0 ? '#next-month' : '#previous-month')?.focus();
 }
+function crowdMarkup() {
+  const slots=crowdForDay(crowdDay);
+  const days=[1,2,3,4,5,6,0].map(day=>'<option value="'+day+'" '+(day===crowdDay?'selected':'')+'>'+new Intl.DateTimeFormat(prefs.locale,{weekday:'long',timeZone:'UTC'}).format(new Date(Date.UTC(2024,0,day===0?7:day)))+'</option>').join('');
+  return '<section class="panel crowd-panel"><span class="count-pill">'+t('estimate')+'</span><h2>'+t('crowdTitle')+'</h2><p>'+t('crowdMethod')+'</p><label for="crowd-day">'+t('chooseDay')+'<select id="crowd-day">'+days+'</select></label><p class="help">'+t('crowdPeaks')+'</p><div class="crowd-charts">'+(slots.length?slots.map(slot=>'<figure><figcaption><strong>'+t(slot.meal)+'</strong> · '+t('modelMean')+' '+averageIntensity(slot.points)+'/100</figcaption><div class="crowd-bars" aria-hidden="true">'+slot.points.map(([time,value])=>'<div class="crowd-column"><span style="height:'+value+'%"></span><small>'+time+'</small></div>').join('')+'</div><details><summary>'+t('chartTable')+'</summary><table><thead><tr><th>'+t('hours')+'</th><th>'+t('intensity')+'</th></tr></thead><tbody>'+slot.points.map(([time,value])=>'<tr><th scope="row">'+time+'</th><td>'+value+'/100</td></tr>').join('')+'</tbody></table></details></figure>').join(''):'<p>'+t('closed')+'</p>')+'</div><p class="help">'+t('crowdNoCounts')+'</p><a class="inline-link" href="https://www.google.com/maps/search/Cantina+IPB+Bragan%C3%A7a" target="_blank" rel="noopener noreferrer">Google Maps ↗</a> · <a class="inline-link" href="https://pt.restaurantguru.com/Cantina-IPB-Braganca" target="_blank" rel="noopener noreferrer">Restaurant Guru ↗</a></section>';
+}
 function renderHours() {
-  $('#hours-view').innerHTML = `<div class="page-heading"><p class="eyebrow">${t('hoursEyebrow')}</p><h1>${t('hoursTitle')}</h1><p>${t('hoursIntro')}</p></div><div class="hours-grid">${site.venues.map(venue=>`<section class="panel"><span class="status-pill ${openingStatus(venue).open ? 'open' : ''}">${statusText(venue)}</span><h2>${escape(venue.name)}</h2><p class="help">${t(venue.days.includes(6) ? 'monSat' : 'monFri')}</p>${venue.slots.map(([from,to],i)=>`<div class="time-row"><span>${t(i === 0 ? 'lunch' : 'dinner')}</span><strong>${from} – ${to}</strong></div>`).join('')}</section>`).join('')}</div><div class="hours-note"><p class="help">${t('exceptions')}</p><p class="help">${t('verifiedOn')} ${dateLabel(site.verifiedOn)} · <a class="inline-link" href="${site.officialUrl}" target="_blank" rel="noopener noreferrer">${t('officialHours')}</a></p></div><section class="panel"><h2>${t('crowdTitle')}</h2><p class="help">${t('crowdBody')}</p></section>`;
+  $('#hours-view').innerHTML = `<div class="page-heading"><p class="eyebrow">${t('hoursEyebrow')}</p><h1>${t('hoursTitle')}</h1><p>${t('hoursIntro')}</p></div><div class="hours-grid">${site.venues.map(venue=>`<section class="panel"><span class="status-pill ${openingStatus(venue).open ? 'open' : ''}">${statusText(venue)}</span><h2>${escape(venue.name)}</h2><p class="help">${t(venue.days.includes(6) ? 'monSat' : 'monFri')}</p>${venue.slots.map(([from,to],i)=>`<div class="time-row"><span>${t(i === 0 ? 'lunch' : 'dinner')}</span><strong>${from} – ${to}</strong></div>`).join('')}</section>`).join('')}</div><div class="hours-note"><p class="help">${t('exceptions')}</p><p class="help">${t('verifiedOn')} ${dateLabel(site.verifiedOn)} · <a class="inline-link" href="${site.officialUrl}" target="_blank" rel="noopener noreferrer">${t('officialHours')}</a></p></div>${crowdMarkup()}`;
 }
 function renderAbout() {
   $('#about-view').innerHTML = `<div class="page-heading"><p class="eyebrow">AJUDA CANTINA</p><h1>${t('aboutTitle')}</h1></div><div class="about-layout"><section class="panel"><h2>${t('about')}</h2><p>${t('aboutBody')}</p><p>${t('independent')}</p></section><section class="panel"><h2>${t('sources')}</h2><p>${t('sourcesBody')}</p><div class="source-links"><a href="${site.officialUrl}" target="_blank" rel="noopener noreferrer">SAS-IPB ↗</a><a href="https://www.instagram.com/comidas.ipb/" target="_blank" rel="noopener noreferrer">@comidas.ipb ↗</a><a href="https://www.instagram.com/comidasdoipb/" target="_blank" rel="noopener noreferrer">@comidasdoipb ↗</a><a href="${site.repositoryUrl}" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></section><section class="panel"><h2>${t('privacy')}</h2><p>${t('privacyBody')}</p><button class="secondary-button" id="delete-data">${t('clearData')}</button></section></div>`;
@@ -145,7 +157,7 @@ function utility(title,body) {
   $('#utility-content').innerHTML = `<div class="utility-content"><button class="dialog-close" data-close="utility-dialog" aria-label="${t('close')}">×</button><h2 id="utility-title">${title}</h2>${body}</div>`;
   $('#utility-dialog').showModal();
 }
-function resetFilters() { search=''; category='all'; sort='recent'; $('#dish-search').value=''; $('#sort').value='recent'; renderCatalog(); }
+function resetFilters() { search=''; category='all'; subtype='all'; minRating=0; pageLimit=24; sort='recent'; $('#dish-search').value=''; $('#sort').value='recent'; renderCatalog(); }
 
 document.addEventListener('click',async event => {
   if(event.target.closest('.skip-link')) { event.preventDefault(); $('#main').focus(); return; }
@@ -157,6 +169,7 @@ document.addEventListener('click',async event => {
   const day = event.target.closest('[data-day]'); if (day) return changePlan(day.dataset.day);
   switch(event.target.closest('[id]')?.id) {
     case 'explore': event.preventDefault(); $('#dish-search').scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'}); $('#dish-search').focus({preventScroll:true}); break;
+    case 'load-more': { const previous=pageLimit; pageLimit+=24; renderCatalog(); $('.dish-link')[previous]?.focus(); break; }
     case 'reset-filters': resetFilters(); $('#dish-search').focus(); break;
     case 'empty-reset': resetFilters(); if(route === 'favorites') location.hash='catalog'; break;
     case 'detail-favorite': toggleFavorite(detailId); break;
@@ -186,7 +199,7 @@ document.addEventListener('click',async event => {
 });
 document.addEventListener('input',event => {
   if (!prefs) return;
-  if(event.target.id === 'dish-search') { search=event.target.value; renderCatalog(); }
+  if(event.target.id === 'dish-search') { search=event.target.value; pageLimit=24; renderCatalog(); }
   const property = {'balance':'balance','lunch-price':'lunch','dinner-price':'dinner'}[event.target.id];
   if(property) { prefs[property]=event.target.value; save(); renderBudget(); }
 });
@@ -194,7 +207,11 @@ document.addEventListener('change',event => {
   if (!prefs) return;
   switch(event.target.id) {
     case 'language': prefs.locale=event.target.value; save(); applyPreferences(); renderStatus(); navigate(); break;
-    case 'sort': sort=event.target.value; renderCatalog(); break;
+    case 'category-select': category=event.target.value; subtype='all'; pageLimit=24; renderCatalog(); $('#category-select').focus(); break;
+    case 'subtype-select': subtype=event.target.value; pageLimit=24; renderCatalog(); $('#subtype-select').focus(); break;
+    case 'rating-filter': minRating=Number(event.target.value); pageLimit=24; renderCatalog(); $('#rating-filter').focus(); break;
+    case 'crowd-day': crowdDay=Number(event.target.value); renderHours(); $('#crowd-day').focus(); break;
+    case 'sort': pageLimit=24; sort=event.target.value; renderCatalog(); break;
     case 'personal-rating': { const rating=+event.target.value; if(rating) prefs.ratings[detailId]=rating; else delete prefs.ratings[detailId]; if(save()) toast(t('saved')); renderCatalog(); break; }
     case 'meal-lunch': mealSelection.lunch=event.target.checked; break;
     case 'meal-dinner': mealSelection.dinner=event.target.checked; break;
@@ -226,7 +243,7 @@ async function start() {
     let raw={}; try {raw=JSON.parse(localStorage.getItem(storageKey) || '{}');} catch { /* Defaults also handle disabled storage. */ }
     prefs=cleanPreferences(raw,dishes.map(d=>d.id),site);
     applyPreferences(); renderStatus(); navigate(); syncConnection();
-    setInterval(()=>{ renderStatus(); if(route==='hours') renderHours(); },60000);
+    setInterval(()=>{ renderStatus(); if(route==='hours') $('.hours-grid .status-pill').forEach((el,i)=>{el.textContent=statusText(site.venues[i]);el.classList.toggle('open',openingStatus(site.venues[i],new Date(),site.closures).open);}); },60000);
     if('serviceWorker' in navigator && window.isSecureContext) {
       registration=await navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'});
       const showUpdate=()=>{if(registration.waiting) $('#update-banner').hidden=false;};

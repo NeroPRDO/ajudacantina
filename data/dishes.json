@@ -1,34 +1,5263 @@
 [
   {
-    "id": "lasanha", "name": "Lasanha", "translations": {"en":"Lasagne", "fr":"Lasagnes", "es":"Lasaña"},
-    "categories": ["meat", "pasta"], "tags": ["vitela", "massa", "lasagna", "beef", "pasta"],
-    "description": {"pt":"Lasanha gratinada, fotografada com salada. Registo da comunidade; a apresentação pode variar.","en":"Baked lasagne, photographed with salad. A community record; presentation may vary.","fr":"Lasagnes gratinées, photographiées avec une salade. Photo communautaire ; la présentation peut varier.","es":"Lasaña gratinada, fotografiada con ensalada. Registro de la comunidad; la presentación puede variar."},
-    "image": "assets/lasanha.jpg", "imagePosition": "center 80%", "date": "2026-10-30",
-    "source": "https://www.instagram.com/comidas.ipb/p/DfIqhXEN9xn/", "credit": "@comidas.ipb",
-    "ingredients": null, "preparation": null, "allergens": null, "verifiedRecipe": false
+    "id": "lasanha",
+    "name": "Lasanha",
+    "translations": {
+      "en": "Lasagne",
+      "fr": "Lasagnes",
+      "es": "Lasaña"
+    },
+    "categories": [
+      "meat",
+      "pasta"
+    ],
+    "tags": [
+      "vitela",
+      "massa",
+      "lasagna",
+      "beef",
+      "pasta"
+    ],
+    "description": {
+      "pt": "Lasanha gratinada, fotografada com salada. Registo da comunidade; a apresentação pode variar.",
+      "en": "Baked lasagne, photographed with salad. A community record; presentation may vary.",
+      "fr": "Lasagnes gratinées, photographiées avec une salade. Photo communautaire ; la présentation peut varier.",
+      "es": "Lasaña gratinada, fotografiada con ensalada. Registro de la comunidad; la presentación puede variar."
+    },
+    "image": "assets/lasanha.jpg",
+    "imagePosition": "center 80%",
+    "date": "2026-10-30",
+    "source": "https://www.instagram.com/comidas.ipb/p/DfIqhXEN9xn/",
+    "credit": "@comidas.ipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false,
+    "subtypes": []
   },
   {
-    "id": "costeletas", "name": "Costeletas de porco a salsicheito", "translations": {"en":"Pork chops, salsicheito style", "fr":"Côtes de porc façon salsicheito", "es":"Chuletas de cerdo a salsicheito"},
-    "categories": ["meat"], "tags": ["porco", "costeleta", "pork", "cerdo", "porc"],
-    "description": {"pt":"Costeletas de porco, tal como identificadas na publicação original. Fotografia de uma refeição servida na cantina.","en":"Pork chops, as named in the original post. Photograph of a meal served at the canteen.","fr":"Côtes de porc, selon le nom de la publication originale. Photo d’un repas servi à la cantine.","es":"Chuletas de cerdo, según el nombre de la publicación original. Fotografía de una comida servida en la cantina."},
-    "image": "assets/costeletas.jpg", "imagePosition": "center 80%", "date": "2026-10-29",
-    "source": "https://www.instagram.com/comidas.ipb/p/DfFHUIltdtX/", "credit": "@comidas.ipb",
-    "ingredients": null, "preparation": null, "allergens": null, "verifiedRecipe": false
+    "id": "costeletas",
+    "name": "Costeletas de porco a salsicheito",
+    "translations": {
+      "en": "Pork chops, salsicheito style",
+      "fr": "Côtes de porc façon salsicheito",
+      "es": "Chuletas de cerdo a salsicheito"
+    },
+    "categories": [
+      "meat"
+    ],
+    "tags": [
+      "porco",
+      "costeleta",
+      "pork",
+      "cerdo",
+      "porc"
+    ],
+    "description": {
+      "pt": "Costeletas de porco, tal como identificadas na publicação original. Fotografia de uma refeição servida na cantina.",
+      "en": "Pork chops, as named in the original post. Photograph of a meal served at the canteen.",
+      "fr": "Côtes de porc, selon le nom de la publication originale. Photo d’un repas servi à la cantine.",
+      "es": "Chuletas de cerdo, según el nombre de la publicación original. Fotografía de una comida servida en la cantina."
+    },
+    "image": "assets/costeletas.jpg",
+    "imagePosition": "center 80%",
+    "date": "2026-10-29",
+    "source": "https://www.instagram.com/comidas.ipb/p/DfFHUIltdtX/",
+    "credit": "@comidas.ipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false,
+    "subtypes": [
+      "pork"
+    ]
   },
   {
-    "id": "soja", "name": "Soja salteada", "translations": {"en":"Sautéed soya", "fr":"Soja sauté", "es":"Soja salteada"},
-    "categories": ["vegetarian"], "tags": ["soja", "soy", "soya", "vegetariano", "vegetarian", "vegetarien"],
-    "description": {"pt":"Opção identificada como vegetariana na publicação original. A receita e os ingredientes completos ainda não foram confirmados.","en":"Identified as a vegetarian option in the original post. The recipe and full ingredients have not yet been confirmed.","fr":"Option présentée comme végétarienne dans la publication originale. Recette et ingrédients complets non confirmés.","es":"Opción identificada como vegetariana en la publicación original. Receta e ingredientes completos aún no confirmados."},
-    "image": "assets/soja.jpg", "imagePosition": "center 80%", "date": "2026-10-29",
-    "source": "https://www.instagram.com/comidas.ipb/p/DfFHQkSN5o-/", "credit": "@comidas.ipb",
-    "ingredients": null, "preparation": null, "allergens": null, "verifiedRecipe": false
+    "id": "soja",
+    "name": "Soja salteada",
+    "translations": {
+      "en": "Sautéed soya",
+      "fr": "Soja sauté",
+      "es": "Soja salteada"
+    },
+    "categories": [
+      "vegetarian"
+    ],
+    "tags": [
+      "soja",
+      "soy",
+      "soya",
+      "vegetariano",
+      "vegetarian",
+      "vegetarien"
+    ],
+    "description": {
+      "pt": "Opção identificada como vegetariana na publicação original. A receita e os ingredientes completos ainda não foram confirmados.",
+      "en": "Identified as a vegetarian option in the original post. The recipe and full ingredients have not yet been confirmed.",
+      "fr": "Option présentée comme végétarienne dans la publication originale. Recette et ingrédients complets non confirmés.",
+      "es": "Opción identificada como vegetariana en la publicación original. Receta e ingredientes completos aún no confirmados."
+    },
+    "image": "assets/soja.jpg",
+    "imagePosition": "center 80%",
+    "date": "2026-10-29",
+    "source": "https://www.instagram.com/comidas.ipb/p/DfFHQkSN5o-/",
+    "credit": "@comidas.ipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false,
+    "subtypes": [
+      "soy"
+    ]
   },
   {
-    "id": "almondegas", "name": "Almôndegas estufadas", "translations": {"en":"Stewed meatballs", "fr":"Boulettes de viande mijotées", "es":"Albóndigas estofadas"},
-    "categories": ["meat"], "tags": ["vitela", "arroz", "meatballs", "boulettes", "albondigas"],
-    "description": {"pt":"Almôndegas com molho, fotografadas com arroz. Registo visual de uma refeição; os acompanhamentos podem mudar.","en":"Meatballs in sauce, photographed with rice. A record of one meal; side dishes may change.","fr":"Boulettes en sauce, photographiées avec du riz. Les accompagnements peuvent varier.","es":"Albóndigas con salsa, fotografiadas con arroz. Los acompañamientos pueden cambiar."},
-    "image": "assets/almondegas.jpg", "imagePosition": "center 80%", "date": "2026-10-29",
-    "source": "https://www.instagram.com/comidas.ipb/p/DfFHJ6uNWlL/", "credit": "@comidas.ipb",
-    "ingredients": null, "preparation": null, "allergens": null, "verifiedRecipe": false
+    "id": "almondegas",
+    "name": "Almôndegas estufadas",
+    "translations": {
+      "en": "Stewed meatballs",
+      "fr": "Boulettes de viande mijotées",
+      "es": "Albóndigas estofadas"
+    },
+    "categories": [
+      "meat"
+    ],
+    "tags": [
+      "vitela",
+      "arroz",
+      "meatballs",
+      "boulettes",
+      "albondigas"
+    ],
+    "description": {
+      "pt": "Almôndegas com molho, fotografadas com arroz. Registo visual de uma refeição; os acompanhamentos podem mudar.",
+      "en": "Meatballs in sauce, photographed with rice. A record of one meal; side dishes may change.",
+      "fr": "Boulettes en sauce, photographiées avec du riz. Les accompagnements peuvent varier.",
+      "es": "Albóndigas con salsa, fotografiadas con arroz. Los acompañamientos pueden cambiar."
+    },
+    "image": "assets/almondegas.jpg",
+    "imagePosition": "center 80%",
+    "date": "2026-10-29",
+    "source": "https://www.instagram.com/comidas.ipb/p/DfFHJ6uNWlL/",
+    "credit": "@comidas.ipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false,
+    "subtypes": []
+  },
+  {
+    "id": "archive-c9hd-c5mcpz",
+    "name": "Costeleta de porco grelhadas",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork",
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/C9hd-c5Mcpz.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/C9hd-c5Mcpz/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cylx1imsrvg",
+    "name": "Fricassé de Seitan",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "seitan"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cylx1ImsRVG.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cylx1ImsRVG/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyenzehsxry",
+    "name": "Guisado de vitela com salsa",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyeNzehsXRy.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyeNzehsXRy/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyenxtnsfpk",
+    "name": "Grão de bico estufado",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "chickpeas"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyeNxtNsfPk.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyeNxtNsfPk/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyenuenm1zn",
+    "name": "Bife de tofu com molho",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "tofu"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyeNuENM1zn.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyeNuENM1zn/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyenrsbsktw",
+    "name": "Tofu estufado",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "tofu"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyeNrSBsktW.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyeNrSBsktW/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyenneksyav",
+    "name": "Vitela à boa dona",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyeNneksYAV.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyeNneksYAV/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyenlrest9b",
+    "name": "Risoto de legumes",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "vegetables"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyeNlrEsT9b.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyeNlrEsT9b/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyeniqjsms4",
+    "name": "Favas de tomatada",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "beans"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyeNiqJsMS4.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyeNiqJsMS4/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyengukmxaf",
+    "name": "Chilli de tofu",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "tofu"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyeNgUKMxaf.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyeNgUKMxaf/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyn5yaxsfqe",
+    "name": "Massa cotovelo com cogumelo e ervilhas",
+    "translations": {},
+    "categories": [
+      "vegetarian",
+      "pasta"
+    ],
+    "subtypes": [
+      "mushrooms"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyN5yAXsFqE.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyN5yAXsFqE/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyn5uudmfwg",
+    "name": "Tofu estufado",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "tofu"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyN5uUDMfwg.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyN5uUDMfwg/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyn5scomsoo",
+    "name": "Paella vegetariana",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyN5scOMSoo.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyN5scOMSoo/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyn5qagm_9g",
+    "name": "Peru no forno com ervas",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "turkey",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyN5qAGM_9g.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyN5qAGM_9g/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyn5ncfs3de",
+    "name": "Rancho a portuguesa",
+    "translations": {},
+    "categories": [
+      "other"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyN5ncfs3de.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyN5ncfs3de/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyn5f1js2zp",
+    "name": "Chilli vegetariano",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyN5f1Js2ZP.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyN5f1Js2ZP/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyn5abemzko",
+    "name": "Bolonhesa de soja",
+    "translations": {},
+    "categories": [
+      "vegetarian",
+      "pasta"
+    ],
+    "subtypes": [
+      "soy"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyN5abeMzKo.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyN5abeMzKo/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyn5ygcm3ro",
+    "name": "Salmão grelhado",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "salmon",
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyN5YGCM3ro.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyN5YGCM3ro/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyn5wjesmij",
+    "name": "Vitela assada com laranja",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyN5WJEsMiJ.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyN5WJEsMiJ/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyn5sqlsxka",
+    "name": "Espetadas de peru no forno",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "turkey",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyN5SqlsXka.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyN5SqlsXka/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyn5puhsthh",
+    "name": "Tagine de grão com beringela",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "chickpeas"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyN5PUhsThh.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyN5PUhsThh/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyn4yelsgtw",
+    "name": "Cordeiro assado a montesinho",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "lamb",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyN4yElsGtw.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyN4yElsGtw/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cyn4ofqm4x1",
+    "name": "Feijoada transmontana",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beans"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CyN4oFQM4x1.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CyN4oFQM4x1/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cxlb1u_mp3t",
+    "name": "Bifinhos de seitan panados",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "seitan"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CxLb1u_Mp3T.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CxLb1u_Mp3T/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cxlbpv0moy0",
+    "name": "Soja a espiritual",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "soy"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CxLbpv0Moy0.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CxLbpv0Moy0/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cxipaymsnp_",
+    "name": "Peru grelhado",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "turkey",
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CxIpaYMsnp_.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CxIpaYMsnp_/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cxilfcnmqbm",
+    "name": "Jardineira vegan",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CxILfcnMqbM.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CxILfcnMqbM/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cwzvmb0mi-p",
+    "name": "Bife de peru a primavera",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "turkey"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CwzvmB0MI-P.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CwzvmB0MI-P/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cwieoofmw9c",
+    "name": "Churrasco misto",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CwieoOFMW9c.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CwieoOFMW9c/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cwieicvsx2u",
+    "name": "Favas estufadas com batata",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "beans"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CwieicVsx2u.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CwieicVsx2u/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cujzxs9mhmo",
+    "name": "Fetuccine alfredo",
+    "translations": {},
+    "categories": [
+      "vegetarian",
+      "pasta"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CujZxS9MhMo.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CujZxS9MhMo/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-csmxi3nmk_k",
+    "name": "Strogonoff de soja com batata",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "soy"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CsmXI3nMK_K.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CsmXI3nMK_K/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cslvvenmjkz",
+    "name": "Cordeiro à mestre Zé",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "lamb"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CslVvENMJKZ.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CslVvENMJKZ/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cslvc__mm_p",
+    "name": "Vitela assada à Hawai",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CslVc__Mm_P.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CslVc__Mm_P/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-csbhihzsfcl",
+    "name": "Legumes assados com ervilhas",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "vegetables",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CsbHiHZsFcL.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CsbHiHZsFcL/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-csyjdrwsa1q",
+    "name": "Pescada com molho de marisco",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "seafood",
+      "hake"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CsYjdRwsA1Q.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CsYjdRwsA1Q/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-csyhbowmsy2",
+    "name": "Lasanha de seitan",
+    "translations": {},
+    "categories": [
+      "vegetarian",
+      "pasta"
+    ],
+    "subtypes": [
+      "seitan"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CsYhBOwMSy2.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CsYhBOwMSy2/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-csv-lgxso8u",
+    "name": "Pescada com molho de marisco",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "seafood",
+      "hake"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CsV-Lgxso8U.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CsV-Lgxso8U/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-csv568zmvbh",
+    "name": "Vitela à búlgara",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CsV568zMvbh.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CsV568zMvbh/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cstbes2mait",
+    "name": "Vitela assada na panela",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CsTbeS2MAit.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CsTbeS2MAit/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cstxriwmlva",
+    "name": "Tofu à Gomes de Sá",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "tofu"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CsTXriWMlVa.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CsTXriWMlVa/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-csrklglsxct",
+    "name": "Massa gratinada com porco e bacon",
+    "translations": {},
+    "categories": [
+      "meat",
+      "pasta"
+    ],
+    "subtypes": [
+      "pork"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CsRkLglsxCt.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CsRkLglsxCt/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-csrkd9xmtia",
+    "name": "Bifinhos de porco à italiana",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CsRkD9XMtIA.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CsRkD9XMtIA/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crgu6oysr46",
+    "name": "Peixe espada com banana",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Crgu6oYsR46.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Crgu6oYsR46/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crgtjmgs5e5",
+    "name": "Soja salteada com arroz de salsa",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "soy"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrgtJmgs5e5.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrgtJmgs5e5/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cremdi-m-qs",
+    "name": "Pescada cozida com todos",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "hake"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CreMDi-M-Qs.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CreMDi-M-Qs/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crdrhijmnzf",
+    "name": "Frango estufado com ervilhas",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrdRHijMnZf.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrdRHijMnZf/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crbgye-smgv",
+    "name": "Chanfana de cordeiro",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "lamb"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrbgYe-smGV.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrbgYe-smGV/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-craylrksh5a",
+    "name": "Lulas grelhadas com molho verde",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "seafood",
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrayLrKsh5a.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrayLrKsh5a/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crayedgsay1",
+    "name": "Arroz de tamboril",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrayEDGsay1.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrayEDGsay1/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-craybokspxj",
+    "name": "Vitela estufada com cogumelos",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef",
+      "mushrooms"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrayBOKsPxJ.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrayBOKsPxJ/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cravlohmehj",
+    "name": "Guisado de soja com legumes",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "soy",
+      "vegetables"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CravlOhMEHJ.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CravlOhMEHJ/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crvjwg4sef8",
+    "name": "Bacalhau à lagareiro",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "cod"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrVjwg4sEf8.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrVjwg4sEf8/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crvjpqfmnh0",
+    "name": "Lombo de porco recheado",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrVjpQFMNH0.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrVjpQFMNH0/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crs9eqtsmb5",
+    "name": "Chilli vegetariano",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrS9Eqtsmb5.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrS9Eqtsmb5/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crs8koesyc3",
+    "name": "Pescada no forno",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "hake",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrS8kOEsYc3.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrS8kOEsYc3/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crs8nipsg8p",
+    "name": "Salteado de Peru com fusili e laranja",
+    "translations": {},
+    "categories": [
+      "meat",
+      "pasta"
+    ],
+    "subtypes": [
+      "turkey"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrS8NIpsG8P.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrS8NIpsG8P/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crroiorsyap",
+    "name": "Badejo em azeite e alho",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrROIorsYAP.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrROIorsYAP/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crrlmgvmm2m",
+    "name": "Saltimboca de porco com fiambre",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrRLMGVMM2M.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrRLMGVMM2M/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crqplxmmepq",
+    "name": "Tofu à lagareiro",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "tofu"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrQpLxmMEpQ.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrQpLxmMEpQ/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crqx9onmhft",
+    "name": "Ovos escalfados com ervilhas estufadas",
+    "translations": {},
+    "categories": [
+      "eggs"
+    ],
+    "subtypes": [
+      "eggs"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrQX9ONMHFt.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrQX9ONMHFt/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crosk0qsdaq",
+    "name": "Costeletas de porco à zíngaro",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrOsK0qsdAQ.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrOsK0qsdAQ/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-croqzhms8n6",
+    "name": "Massa com grão de bico, feijão verde e cenoura",
+    "translations": {},
+    "categories": [
+      "vegetarian",
+      "pasta"
+    ],
+    "subtypes": [
+      "chickpeas",
+      "beans"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrOqzHms8n6.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrOqzHms8n6/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crlnxcbmkqn",
+    "name": "Frango estufado à provençal",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrLNXcBMkQn.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrLNXcBMkQn/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crjdmicmzs7",
+    "name": "Lasanha de soja",
+    "translations": {},
+    "categories": [
+      "vegetarian",
+      "pasta"
+    ],
+    "subtypes": [
+      "soy"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrJdMiCMzS7.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrJdMiCMzS7/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-crdm_musp5e",
+    "name": "Cordeiro assado no forno",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "lamb",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CrDm_mUsP5E.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CrDm_mUsP5E/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cq6wnv0mywr",
+    "name": "Strogonoff marujinho",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cq6WNV0MYWR.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cq6WNV0MYWR/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpyb3wysgep",
+    "name": "Strogonoff de frango",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpyB3WysGEP.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpyB3WysGEP/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpsw3xzjlij",
+    "name": "Brócolis gratinados",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "vegetables"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cpsw3XzjLij.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cpsw3XzjLij/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpswzbrdoqr",
+    "name": "Pimentos recheados",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "vegetables"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpswzBrDoQr.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpswzBrDoQr/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpswqjodvzt",
+    "name": "Peru assado com laranja",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "turkey",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpswqjODVzT.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpswqjODVzT/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpswjmzjzrh",
+    "name": "Bife à IPB",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpswjmZjzrH.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpswjmZjzrH/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpswz6pj3nj",
+    "name": "Solha a moleiro",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpswZ6Pj3Nj.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpswZ6Pj3Nj/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpkdonomchc",
+    "name": "Costeleta de porco à zíngaro",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpkdonOMCHc.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpkdonOMCHc/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpcmnlysyhd",
+    "name": "Legumes salteados",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "vegetables"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpcMnlysyhd.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpcMnlysyhd/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpylekbs-we",
+    "name": "Escalope de peru com cogumelos",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "turkey",
+      "mushrooms"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpYLEKbs-WE.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpYLEKbs-WE/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cptpziwmx9e",
+    "name": "Esparguete a napolitana",
+    "translations": {},
+    "categories": [
+      "vegetarian",
+      "pasta"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpTPZIWMx9e.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpTPZIWMx9e/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpswxkhsum-",
+    "name": "Caril de legumes com ovos escalfados",
+    "translations": {},
+    "categories": [
+      "eggs"
+    ],
+    "subtypes": [
+      "vegetables",
+      "eggs"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpSWxkHsum-.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpSWxkHsum-/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cppvzsrse3x",
+    "name": "Bacalhau à Gomes de Sá",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "cod"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpPvzSrsE3x.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpPvzSrsE3x/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cppi7cdmzwy",
+    "name": "Pescada à Gomes de Sá",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "hake"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpPi7cDMzWY.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpPi7cDMzWY/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpojttkmigi",
+    "name": "Soja à espiritual",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "soy"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpOJTtKMIgI.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpOJTtKMIgI/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpojqfqmsyy",
+    "name": "Chop suey de legumes",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "vegetables"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpOJQFqMsyy.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpOJQFqMsyy/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpoirrwmr07",
+    "name": "Panadinhos de porco",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpOIrrWMR07.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpOIrrWMR07/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpoejzgmi_s",
+    "name": "Abrótea grelhada",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpOEJzgMi_s.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpOEJzgMi_s/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpobnnomcpd",
+    "name": "Panadinhos de porco",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpOBNnoMcpd.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpOBNnoMcpd/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cplcr8rmidp",
+    "name": "Salmão grelhado",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "salmon",
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpLCr8RMIDp.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpLCr8RMIDp/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cplcqhms0ug",
+    "name": "Almôndegas estufadas",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpLCqHMs0UG.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpLCqHMs0UG/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cplb9h-sagy",
+    "name": "Jardineira de Seitan",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "seitan"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpLB9h-sAgy.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpLB9h-sAgy/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpkt8hpsr_e",
+    "name": "Pá de porco no forno",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpKt8HpsR_e.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpKt8HpsR_e/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpkt4unmwkt",
+    "name": "Coxinhas de Frango à concalesa",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpKt4UNMwKt.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpKt4UNMwKt/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpdw4fbm5gw",
+    "name": "Arroz de tamboril",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpDw4fbM5gw.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpDw4fbM5gw/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpdaalfsqwd",
+    "name": "Dourada no forno",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpDAALFsQWD.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpDAALFsQWD/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpc_6yvsqkf",
+    "name": "Chili de Soja",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "soy"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpC_6YVsQKf.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpC_6YVsQKf/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cpbjmvdso5x",
+    "name": "Carne de porco à radical",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CpBJMVDso5X.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CpBJMVDso5X/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-co-hw_6mql4",
+    "name": "Lombinhos de porco na chapa",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Co-hw_6Mql4.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Co-hw_6Mql4/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-co-ecnrnyky",
+    "name": "Frango assado à foguetão",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Co-EcNRNykY.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Co-EcNRNykY/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-co79kjmsbr7",
+    "name": "Filetes de pescada panados",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "hake",
+      "fillet"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Co79KJmsBR7.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Co79KJmsBR7/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-co7snpwmtje",
+    "name": "Chanfana de cordeiro",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "lamb"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Co7SNpwMTjE.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Co7SNpwMTjE/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-co7siuom0dh",
+    "name": "Bifinhos de frango grelhados",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken",
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Co7SIUoM0Dh.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Co7SIUoM0Dh/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-co4xgzlmgaa",
+    "name": "Entremeada grelhada",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork",
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Co4xGZlMGaA.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Co4xGZlMGaA/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-co4kokzmgjp",
+    "name": "Raia dourada",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Co4koKZMGJP.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Co4koKZMGJP/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-coxcrarmxvd",
+    "name": "Paella vegetariana",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CoxCRaRMXVd.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CoxCRaRMXVd/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cow-utjmgtn",
+    "name": "Vitela assada à transmontana",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cow-utjMgTn.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cow-utjMgTn/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-covke6tm7qz",
+    "name": "Bifinhos de frango recheados",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CovKe6tM7qZ.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CovKe6tM7qZ/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-couyg1jshqr",
+    "name": "Vitela à florentina",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CouYg1JsHQR.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CouYg1JsHQR/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cop-chtmqyt",
+    "name": "Bife de Peru à francesa",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "turkey"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cop-cHtMqYt.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cop-cHtMqYt/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cop9x9ksesl",
+    "name": "Peru no forno com ervas e limão",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "turkey",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cop9x9KsESl.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cop9x9KsESl/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-conklwiswak",
+    "name": "Perna de porco no forno",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/ConklWIsWAK.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/ConklWIsWAK/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-conkemcmztb",
+    "name": "Espaguete à napolitana",
+    "translations": {},
+    "categories": [
+      "vegetarian",
+      "pasta"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/ConkeMcMZtb.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/ConkeMcMZtb/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-coukrhum8re",
+    "name": "Bifinhos de frango à primavera",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CoUkrhuM8re.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CoUkrhuM8re/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-coidtl-mbfc",
+    "name": "Vitela à florentina",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CoIdTL-MBfC.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CoIdTL-MBfC/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-coicz4isos3",
+    "name": "Cordeiro assado à montesinho",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "lamb",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CoIcZ4IsoS3.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CoIcZ4IsoS3/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cofomamm5m9",
+    "name": "Filetes de pescada no forno",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "hake",
+      "fillet",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CoFoMAMM5m9.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CoFoMAMM5m9/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cn9gbsmmktl",
+    "name": "Bifinhos de porco com cogumelos",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork",
+      "mushrooms"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cn9gBSMMkTl.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cn9gBSMMkTl/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cn9fvk7myup",
+    "name": "Peixe espada grelhado",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cn9fvK7MyUP.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cn9fvK7MyUP/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cn7uaoxstfq",
+    "name": "Costeletas de porco panadas",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cn7uAoxsTFQ.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cn7uAoxsTFQ/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cn7t5_im17o",
+    "name": "Cordeiro assado à transmontana",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "lamb",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cn7t5_iM17o.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cn7t5_iM17o/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cn689slme4s",
+    "name": "Coxinhas de frango à concalesa",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cn689sLME4s.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cn689sLME4s/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cn5c0mes7w3",
+    "name": "Febras grelhadas",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork",
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cn5C0MEs7W3.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cn5C0MEs7W3/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cn4vus3mgin",
+    "name": "Bifinhos de frango grelhado com arroz e feijão",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken",
+      "beans",
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cn4VUS3MgIn.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cn4VUS3MgIn/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cn2hgvhsk1d",
+    "name": "Tofu à lagareiro",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "tofu"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cn2hgVhsK1d.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cn2hgVhsK1d/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cn1np3osfi7",
+    "name": "Carapau grelhado",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cn1nP3Osfi7.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cn1nP3Osfi7/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cnz3yuum-rg",
+    "name": "Guisado de vitela com salsa",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cnz3yUuM-Rg.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cnz3yUuM-Rg/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cnzzi-jmkcw",
+    "name": "Perca grelhada",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CnzZI-jMKCw.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CnzZI-jMKCw/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cnzockyshem",
+    "name": "Frango assado à foguetão",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CnzOckYsHEm.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CnzOckYsHEm/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cny57pxskjy",
+    "name": "Peixe vermelho no forno",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cny57pXskjY.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cny57pXskjY/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cnwrshimkx4",
+    "name": "Vitela à fiorentina",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CnwrsHiMkX4.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CnwrsHiMkX4/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cnryotjsclr",
+    "name": "Hambúrguer",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CnrYoTJsClR.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CnrYoTJsClR/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cnrbqzqsww8",
+    "name": "Vitela à superchef",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CnrBQzQswW8.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CnrBQzQswW8/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cnrbehgmsf-",
+    "name": "Caldeirada de legumes",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "vegetables"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CnrBEHGMsf-.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CnrBEHGMsf-/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-ckdgbpsszy6",
+    "name": "Esparguete à napolitana",
+    "translations": {},
+    "categories": [
+      "vegetarian",
+      "pasta"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CkdGBPSszy6.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CkdGBPSszy6/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-ckdf6cpsluq",
+    "name": "Salteado de cogumelos",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "mushrooms"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CkdF6CpsluQ.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CkdF6CpsluQ/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-ckdfijbsrnd",
+    "name": "Salmão albino da Cantina Alternativa",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "salmon"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CkdFijBsrnd.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CkdFijBsrnd/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-ckdfa6zmuag",
+    "name": "Bife de frango à milanesa",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CkdFa6zMuAG.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CkdFa6zMuAG/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-ckdfvyum2ln",
+    "name": "Frango com cogumelos da Cantina Alternativa",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken",
+      "mushrooms"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CkdFVyuM2LN.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CkdFVyuM2LN/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-ckdfetbmgsa",
+    "name": "Macarrão de Peru à pressão",
+    "translations": {},
+    "categories": [
+      "meat",
+      "pasta"
+    ],
+    "subtypes": [
+      "turkey"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CkdFETbMgsa.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CkdFETbMgsa/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-ckde5o2mtwy",
+    "name": "Hambúrguer",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CkdE5O2MTWY.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CkdE5O2MTWY/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-ckdetptm0ps",
+    "name": "Escalopes de frango grelhados",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken",
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CkdEtpTM0Ps.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CkdEtpTM0Ps/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-ckdeheimlm7",
+    "name": "Lasanha de soja",
+    "translations": {},
+    "categories": [
+      "vegetarian",
+      "pasta"
+    ],
+    "subtypes": [
+      "soy"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CkdEhEiMlm7.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CkdEhEiMlm7/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-ckdexucmlkj",
+    "name": "Ensopado de favas com alho",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "beans"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CkdEXUCMlKJ.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CkdEXUCMlKJ/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cknermfsyzu",
+    "name": "Lombo de porco recheado",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CkNermfsyzu.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CkNermfsyzu/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cki6r6nm3ug",
+    "name": "Empadão de legumes",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "vegetables"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CkI6R6nM3UG.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CkI6R6nM3UG/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cki6pcemofg",
+    "name": "Pescada à Gomes de Sá",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "hake"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CkI6PcEMoFg.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CkI6PcEMoFg/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cki6laqmunj",
+    "name": "Bife de porco assado com molho barbecue",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CkI6LAqMuNj.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CkI6LAqMuNj/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cj89mylsvyr",
+    "name": "Espetadas de Peru",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "turkey"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cj89MyLsVYR.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cj89MyLsVYR/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cj89i_uszkq",
+    "name": "Peru assado com especiarias",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "turkey",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cj89I_usZkq.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cj89I_usZkq/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cj8bnmfmjk2",
+    "name": "Salmão ao alho",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "salmon"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cj8BNMfMJk2.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cj8BNMfMJk2/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cj3bdlumhyi",
+    "name": "Strogonoff de seitan",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "seitan"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cj3BDLuMHYi.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cj3BDLuMHYi/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cj225o5mt9v",
+    "name": "Robalo com azeite",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cj225o5Mt9v.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cj225o5Mt9v/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cj1fdndmalx",
+    "name": "Bifinhos de porco grelhados",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork",
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cj1FDNdMALX.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cj1FDNdMALX/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cj05drhmr4s",
+    "name": "Naco de peixe",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cj05drhMr4S.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cj05drhMr4S/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cj0xxjbs4iy",
+    "name": "Esparguete de soja",
+    "translations": {},
+    "categories": [
+      "vegetarian",
+      "pasta"
+    ],
+    "subtypes": [
+      "soy"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cj0xxjbs4Iy.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cj0xxjbs4Iy/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cj0fa9lskon",
+    "name": "Vitela à molho de tomate",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cj0Fa9LsKOn.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cj0Fa9LsKOn/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjvpo5-mnn0",
+    "name": "Espetadas de peru grelhadas",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "turkey",
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjvpO5-MnN0.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjvpO5-MnN0/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjvpkeimnh1",
+    "name": "Guisado de vitela com salsa",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjvpKeIMnh1.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjvpKeIMnh1/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjtchramhd6",
+    "name": "Fricassé de Seitan",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "seitan"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjtcHraMhD6.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjtcHraMhD6/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjs9pubsxqz",
+    "name": "Risoto de legumes",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "vegetables"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cjs9puBsxqz.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cjs9puBsxqz/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjre_e-obxv",
+    "name": "Arroz de pato",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "duck"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjrE_E-oBxv.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjrE_E-oBxv/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjrcupeoqsi",
+    "name": "Bifes de seitan",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "seitan"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjrCUPEoQsI.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjrCUPEoQsI/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjp7ibimlze",
+    "name": "Vitela à boa dona",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cjp7IbiMlze.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cjp7IbiMlze/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjp380psb3n",
+    "name": "Tofu estufado",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "tofu"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cjp380psb3n.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cjp380psb3n/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjno3w4sybp",
+    "name": "Laksa com esparguete",
+    "translations": {},
+    "categories": [
+      "other",
+      "pasta"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjnO3W4sYBp.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjnO3W4sYBp/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjlndf8mje-",
+    "name": "Peixe espada grelhado",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjlnDf8MJe-.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjlnDf8MJe-/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjk1bhmmztg",
+    "name": "Filetes de pescada dourada",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "hake",
+      "fillet"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cjk1BhMMZTg.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cjk1BhMMZTg/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjk0zfnszlr",
+    "name": "Chilli de Tofu",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "tofu"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cjk0zfnsZlr.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cjk0zfnsZlr/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjk0sogmasx",
+    "name": "Almôndegas estufadas",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/Cjk0SoGMAsx.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/Cjk0SoGMAsx/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjknmowscf9",
+    "name": "Macarronete com carne e ervilhas",
+    "translations": {},
+    "categories": [
+      "meat",
+      "pasta"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjknMowsCF9.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjknMowsCF9/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjixzornvrk",
+    "name": "Lombo à salsicheiro",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjiXzoRNVRk.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjiXzoRNVRk/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjiolpvsnzv",
+    "name": "Legumes salteados",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "vegetables"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjiOlpvsnZv.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjiOlpvsnZv/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjifd6gmo_z",
+    "name": "Bifinhos de frango",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjiFD6gMO_Z.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjiFD6gMO_Z/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjctkhemqay",
+    "name": "Salmão grelhado",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "salmon",
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjctKhEMQAy.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjctKhEMQAy/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjbafusm810",
+    "name": "Bife de vitela grelhado",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef",
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjbAfUsM810.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjbAfUsM810/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjafdtdmgs2",
+    "name": "Esparguete à marinheiro",
+    "translations": {},
+    "categories": [
+      "fish",
+      "pasta"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjafdtdMgS2.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjafdtdMgS2/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjafvflmrdt",
+    "name": "Bifinhos de tofu grelhado",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "tofu",
+      "grilled"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjafVFlMRdt.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjafVFlMRdt/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjau3vhskhv",
+    "name": "Gigot de frango",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjaU3VHsKHv.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjaU3VHsKHv/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjysnxmmk3n",
+    "name": "Vitela à florentina",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjYsnXmMk3n.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjYsnXmMk3n/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjx3bnem6ea",
+    "name": "Carne de porco à transmontana",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "pork"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjX3bnEM6EA.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjX3bnEM6EA/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjwgqm1mbsc",
+    "name": "Frango assado com especiarias",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjWGqM1MbsC.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjWGqM1MbsC/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjtpddxszpl",
+    "name": "Bifinhos de frango à primavera",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjTpddxszpl.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjTpddxszpl/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjs0foljben",
+    "name": "Vitela assada com cogumelos",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef",
+      "mushrooms",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjS0fOLjbEn.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjS0fOLjbEn/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjqzp1md0yz",
+    "name": "Coxinhas de frango à concalesa",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjQzp1mD0Yz.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjQzp1mD0Yz/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjqn65bsrlt",
+    "name": "Feijoada vegetariana",
+    "translations": {},
+    "categories": [
+      "vegetarian"
+    ],
+    "subtypes": [
+      "beans"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjQN65bsrlt.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjQN65bsrlt/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjqamejmnaq",
+    "name": "Chanfana de Peru",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "turkey"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjQAMEjMnAQ.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjQAMEjMnAQ/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjifu-mjk_h",
+    "name": "Bacalhau a Brás",
+    "translations": {},
+    "categories": [
+      "fish"
+    ],
+    "subtypes": [
+      "cod"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjIfU-Mjk_h.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjIfU-Mjk_h/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjh6homdxja",
+    "name": "Guisado de vitela com salsa (picadinho de vitela)",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjH6HomDXjA.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjH6HomDXjA/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjfzneojrfq",
+    "name": "Strogonoff de frango",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjFzneojRFQ.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjFzneojRFQ/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjdoodyjb6d",
+    "name": "Frango assado com cerveja",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "chicken",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjDoOdYjb6D.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjDoOdYjb6D/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjdu_rhdphm",
+    "name": "Vitela assada à padeiro",
+    "translations": {},
+    "categories": [
+      "meat"
+    ],
+    "subtypes": [
+      "beef",
+      "baked"
+    ],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjDU_rHDPHM.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjDU_rHDPHM/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
+  },
+  {
+    "id": "archive-cjc9g57jed-",
+    "name": "Lasanha de carne",
+    "translations": {},
+    "categories": [
+      "meat",
+      "pasta"
+    ],
+    "subtypes": [],
+    "tags": [],
+    "description": {
+      "pt": "",
+      "en": "",
+      "fr": "",
+      "es": ""
+    },
+    "image": "assets/archive/CjC9g57jED-.jpg",
+    "date": null,
+    "collectedOn": "2026-11-02",
+    "source": "https://www.instagram.com/comidasdoipb/p/CjC9g57jED-/",
+    "credit": "@comidasdoipb",
+    "ingredients": null,
+    "preparation": null,
+    "allergens": null,
+    "verifiedRecipe": false
   }
 ]
