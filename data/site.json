@@ -1,0 +1,17 @@
+{
+  "name": "Ajuda Cantina",
+  "timeZone": "Europe/Lisbon",
+  "verifiedOn": "2026-11-02",
+  "officialUrl": "https://sas.ipb.pt/index.php/sas/servicos/alimentacao",
+  "pricesUrl": "https://sas.ipb.pt/index.php/sas/servicos/alimentacao/precos-e-pratos",
+  "bookingUrl": "https://online.unipb.pt/",
+  "repositoryUrl": "https://github.com/NeroPRDO/Cantina-MENU",
+  "priceCents": null,
+  "closures": [],
+  "venues": [
+    { "id": "braganca", "name": "Bragança · Sala Grande", "days": [1,2,3,4,5,6], "slots": [["12:00","14:30"],["19:30","21:30"]] },
+    { "id": "alternativa", "name": "Bragança · Sala Alternativa", "days": [1,2,3,4,5], "slots": [["12:00","14:30"]] },
+    { "id": "snack", "name": "Bragança · Snack-bar", "days": [1,2,3,4,5], "slots": [["11:00","15:00"],["18:00","22:00"]] },
+    { "id": "mirandela", "name": "Mirandela · Cantina", "days": [1,2,3,4,5,6], "slots": [["12:00","14:00"],["19:30","21:30"]] }
+  ]
+}

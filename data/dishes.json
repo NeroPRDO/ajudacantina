@@ -1,0 +1,34 @@
+[
+  {
+    "id": "lasanha", "name": "Lasanha", "translations": {"en":"Lasagne", "fr":"Lasagnes", "es":"Lasaña"},
+    "categories": ["meat", "pasta"], "tags": ["vitela", "massa", "lasagna", "beef", "pasta"],
+    "description": {"pt":"Lasanha gratinada, fotografada com salada. Registo da comunidade; a apresentação pode variar.","en":"Baked lasagne, photographed with salad. A community record; presentation may vary.","fr":"Lasagnes gratinées, photographiées avec une salade. Photo communautaire ; la présentation peut varier.","es":"Lasaña gratinada, fotografiada con ensalada. Registro de la comunidad; la presentación puede variar."},
+    "image": "assets/lasanha.jpg", "imagePosition": "center 80%", "date": "2026-10-30",
+    "source": "https://www.instagram.com/comidas.ipb/p/DfIqhXEN9xn/", "credit": "@comidas.ipb",
+    "ingredients": null, "preparation": null, "allergens": null, "verifiedRecipe": false
+  },
+  {
+    "id": "costeletas", "name": "Costeletas de porco a salsicheito", "translations": {"en":"Pork chops, salsicheito style", "fr":"Côtes de porc façon salsicheito", "es":"Chuletas de cerdo a salsicheito"},
+    "categories": ["meat"], "tags": ["porco", "costeleta", "pork", "cerdo", "porc"],
+    "description": {"pt":"Costeletas de porco, tal como identificadas na publicação original. Fotografia de uma refeição servida na cantina.","en":"Pork chops, as named in the original post. Photograph of a meal served at the canteen.","fr":"Côtes de porc, selon le nom de la publication originale. Photo d’un repas servi à la cantine.","es":"Chuletas de cerdo, según el nombre de la publicación original. Fotografía de una comida servida en la cantina."},
+    "image": "assets/costeletas.jpg", "imagePosition": "center 80%", "date": "2026-10-29",
+    "source": "https://www.instagram.com/comidas.ipb/p/DfFHUIltdtX/", "credit": "@comidas.ipb",
+    "ingredients": null, "preparation": null, "allergens": null, "verifiedRecipe": false
+  },
+  {
+    "id": "soja", "name": "Soja salteada", "translations": {"en":"Sautéed soya", "fr":"Soja sauté", "es":"Soja salteada"},
+    "categories": ["vegetarian"], "tags": ["soja", "soy", "soya", "vegetariano", "vegetarian", "vegetarien"],
+    "description": {"pt":"Opção identificada como vegetariana na publicação original. A receita e os ingredientes completos ainda não foram confirmados.","en":"Identified as a vegetarian option in the original post. The recipe and full ingredients have not yet been confirmed.","fr":"Option présentée comme végétarienne dans la publication originale. Recette et ingrédients complets non confirmés.","es":"Opción identificada como vegetariana en la publicación original. Receta e ingredientes completos aún no confirmados."},
+    "image": "assets/soja.jpg", "imagePosition": "center 80%", "date": "2026-10-29",
+    "source": "https://www.instagram.com/comidas.ipb/p/DfFHQkSN5o-/", "credit": "@comidas.ipb",
+    "ingredients": null, "preparation": null, "allergens": null, "verifiedRecipe": false
+  },
+  {
+    "id": "almondegas", "name": "Almôndegas estufadas", "translations": {"en":"Stewed meatballs", "fr":"Boulettes de viande mijotées", "es":"Albóndigas estofadas"},
+    "categories": ["meat"], "tags": ["vitela", "arroz", "meatballs", "boulettes", "albondigas"],
+    "description": {"pt":"Almôndegas com molho, fotografadas com arroz. Registo visual de uma refeição; os acompanhamentos podem mudar.","en":"Meatballs in sauce, photographed with rice. A record of one meal; side dishes may change.","fr":"Boulettes en sauce, photographiées avec du riz. Les accompagnements peuvent varier.","es":"Albóndigas con salsa, fotografiadas con arroz. Los acompañamientos pueden cambiar."},
+    "image": "assets/almondegas.jpg", "imagePosition": "center 80%", "date": "2026-10-29",
+    "source": "https://www.instagram.com/comidas.ipb/p/DfFHJ6uNWlL/", "credit": "@comidas.ipb",
+    "ingredients": null, "preparation": null, "allergens": null, "verifiedRecipe": false
+  }
+]

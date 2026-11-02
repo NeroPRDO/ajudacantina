@@ -1,0 +1,14 @@
+{
+  "name": "ajuda-cantina",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Guia comunitário e estático da cantina do IPB",
+  "scripts": {
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check app.js && node --check i18n.js && node --test tests/*.test.mjs && node scripts/build.mjs"
+  },
+  "engines": { "node": ">=22" }
+}

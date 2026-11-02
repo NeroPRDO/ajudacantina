@@ -1,0 +1,17 @@
+{
+  "id": "./",
+  "name": "Ajuda Cantina · IPB",
+  "short_name": "Ajuda Cantina",
+  "description": "Guia comunitário de pratos, horários e planeamento de refeições da cantina do IPB.",
+  "lang": "pt-PT",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#15121e",
+  "theme_color": "#15121e",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["food", "education", "utilities"]
+}
