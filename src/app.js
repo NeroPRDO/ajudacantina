@@ -1,5 +1,6 @@
 import { normalize, moneyToCents, calculateBudget, lisbonParts, dateKey, isServiceDay, openingStatus, filterDishes, cleanPreferences } from './core.mjs';
 import { crowdForDay, averageIntensity } from './crowd.mjs';
+import { watchSelects } from './selects.mjs';
 import { translate } from './i18n.js';
 
 const $ = selector => document.querySelector(selector);
@@ -47,7 +48,8 @@ function renderStatus() { if (site) $('#quick-status').textContent = statusText(
 function renderFilters() {
   const choices=dishes.filter(d=>category==='all'||d.categories.includes(category));
   const available=subtypeKeys.filter(key=>choices.some(d=>d.subtypes?.includes(key)));
-  $('#filters').innerHTML = '<label for="category-select">'+t('categories')+'<select id="category-select">'+Object.entries(categories).map(([key,icon])=>'<option value="'+key+'" '+(category===key?'selected':'')+'>'+icon+' '+t(key)+'</option>').join('')+'</select></label><label for="subtype-select">'+t('refine')+'<select id="subtype-select"><option value="all">'+t('allTypes')+'</option>'+available.map(key=>'<option value="'+key+'" '+(subtype===key?'selected':'')+'>'+t(key)+'</option>').join('')+'</select></label><label for="rating-filter">'+t('myRating')+'<select id="rating-filter">'+[0,1,2,3,4,5].map(n=>'<option value="'+n+'" '+(minRating===n?'selected':'')+'>'+(n?'★ '+n+'+':t('allRatings'))+'</option>').join('')+'</select></label>';
+  $('#category-chips').innerHTML=Object.entries(categories).map(([key,icon])=>`<button type="button" class="category-chip" data-category="${key}" aria-pressed="${category===key}"><span aria-hidden="true">${icon}</span>${t(key)}</button>`).join('');
+  $('#filters').innerHTML = '<label for="subtype-select">'+t('refine')+'<select id="subtype-select"><option value="all">'+t('allTypes')+'</option>'+available.map(key=>'<option value="'+key+'" '+(subtype===key?'selected':'')+'>'+t(key)+'</option>').join('')+'</select></label><label for="rating-filter">'+t('myRating')+'<select id="rating-filter">'+[0,1,2,3,4,5].map(n=>'<option value="'+n+'" '+(minRating===n?'selected':'')+'>'+(n?'★ '+n+'+':t('allRatings'))+'</option>').join('')+'</select></label>';
 }
 function renderCatalog() {
   const favoriteView = route === 'favorites';
@@ -87,7 +89,7 @@ function openDetail(id) {
   if (!$('#detail-dialog').open) $('#detail-dialog').showModal();
 }
 function renderPlanner() {
-  $('#planner-view').innerHTML = `<div class="page-heading"><p class="eyebrow">${t('budgetEyebrow')}</p><h1>${t('budgetTitle')}</h1><p>${t('budgetIntro')}</p></div><div class="planner-grid"><div><section class="panel"><div class="field-grid"><label for="balance">${t('balance')}<input id="balance" type="text" inputmode="decimal" maxlength="10" value="${escape(prefs.balance)}" aria-describedby="price-help budget-validation"></label><label for="lunch-price">${t('lunchPrice')}<input id="lunch-price" type="text" inputmode="decimal" maxlength="10" value="${escape(prefs.lunch)}" placeholder="0,00" aria-describedby="price-help budget-validation"></label><label for="dinner-price">${t('dinnerPrice')}<input id="dinner-price" type="text" inputmode="decimal" maxlength="10" value="${escape(prefs.dinner)}" placeholder="0,00" aria-describedby="price-help budget-validation"></label></div><p class="help" id="price-help">${t('priceHelp')}</p><a href="${site.pricesUrl}" target="_blank" rel="noopener noreferrer" class="inline-link">${t('priceSource')}</a></section><section class="panel"><h2>${t('selectDays')}</h2><div class="meal-toggle"><label><input type="checkbox" id="meal-lunch" ${mealSelection.lunch ? 'checked' : ''}>${t('lunch')}</label><label><input type="checkbox" id="meal-dinner" ${mealSelection.dinner ? 'checked' : ''}>${t('dinner')}</label></div><div id="calendar-area"></div><p class="help">${t('calendarHelp')}</p></section></div><aside class="panel summary-panel" aria-labelledby="summary-title"><h2 id="summary-title">${t('summary')}</h2><div id="budget-summary" aria-live="polite" aria-atomic="true"></div><p class="help">${t('allMonths')}</p><ul id="scheduled-days" class="scheduled-days"></ul><button class="text-button" id="clear-plan">${t('clearPlan')}</button><a class="secondary-button" href="${site.bookingUrl}" target="_blank" rel="noopener noreferrer">${t('officialMenu')}</a></aside></div>`;
+  $('#planner-view').innerHTML = `<div class="page-heading"><p class="eyebrow">${t('budgetEyebrow')}</p><h1>${t('budgetTitle')}</h1><p>${t('budgetIntro')}</p></div><div class="planner-grid"><div><section class="panel"><div class="field-grid"><label for="balance">${t('balance')}<input id="balance" type="text" inputmode="decimal" maxlength="10" value="${escape(prefs.balance)}" aria-describedby="price-help budget-validation"></label><label for="lunch-price">${t('lunchPrice')}<input id="lunch-price" type="text" inputmode="decimal" maxlength="10" value="${escape(prefs.lunch)}" placeholder="0,00" aria-describedby="price-help budget-validation"></label><label for="dinner-price">${t('dinnerPrice')}<input id="dinner-price" type="text" inputmode="decimal" maxlength="10" value="${escape(prefs.dinner)}" placeholder="0,00" aria-describedby="price-help budget-validation"></label></div><aside class="price-notice"><strong>${t('priceTimingTitle')}</strong><p>${t('priceTimingBody')}</p></aside><p class="help" id="price-help">${t('priceHelp')}</p><a href="${site.pricesUrl}" target="_blank" rel="noopener noreferrer" class="inline-link">${t('priceSource')}</a></section><section class="panel"><h2>${t('selectDays')}</h2><div class="meal-toggle"><label><input type="checkbox" id="meal-lunch" ${mealSelection.lunch ? 'checked' : ''}>${t('lunch')}</label><label><input type="checkbox" id="meal-dinner" ${mealSelection.dinner ? 'checked' : ''}>${t('dinner')}</label></div><div id="calendar-area"></div><p class="help">${t('calendarHelp')}</p></section></div><aside class="panel summary-panel" aria-labelledby="summary-title"><h2 id="summary-title">${t('summary')}</h2><div id="budget-summary" aria-live="polite" aria-atomic="true"></div><p class="help">${t('allMonths')}</p><ul id="scheduled-days" class="scheduled-days"></ul><button class="text-button" id="clear-plan">${t('clearPlan')}</button><a class="secondary-button" href="${site.bookingUrl}" target="_blank" rel="noopener noreferrer">${t('officialMenu')}</a></aside></div>`;
   renderCalendar(); renderBudget();
 }
 function renderCalendar() {
@@ -137,12 +139,17 @@ function crowdMarkup() {
 function renderHours() {
   $('#hours-view').innerHTML = `<div class="page-heading"><p class="eyebrow">${t('hoursEyebrow')}</p><h1>${t('hoursTitle')}</h1><p>${t('hoursIntro')}</p></div><div class="hours-grid">${site.venues.map(venue=>`<section class="panel"><span class="status-pill ${openingStatus(venue).open ? 'open' : ''}">${statusText(venue)}</span><h2>${escape(venue.name)}</h2><p class="help">${t(venue.days.includes(6) ? 'monSat' : 'monFri')}</p>${venue.slots.map(([from,to],i)=>`<div class="time-row"><span>${t(i === 0 ? 'lunch' : 'dinner')}</span><strong>${from} – ${to}</strong></div>`).join('')}</section>`).join('')}</div><div class="hours-note"><p class="help">${t('exceptions')}</p><p class="help">${t('verifiedOn')} ${dateLabel(site.verifiedOn)} · <a class="inline-link" href="${site.officialUrl}" target="_blank" rel="noopener noreferrer">${t('officialHours')}</a></p></div>${crowdMarkup()}`;
 }
-function renderAbout() {
-  $('#about-view').innerHTML = `<div class="page-heading"><p class="eyebrow">AJUDA CANTINA</p><h1>${t('aboutTitle')}</h1></div><div class="about-layout"><section class="panel"><h2>${t('about')}</h2><p>${t('aboutBody')}</p><p>${t('independent')}</p></section><section class="panel"><h2>${t('sources')}</h2><p>${t('sourcesBody')}</p><div class="source-links"><a href="${site.officialUrl}" target="_blank" rel="noopener noreferrer">SAS-IPB ↗</a><a href="https://www.instagram.com/comidas.ipb/" target="_blank" rel="noopener noreferrer">@comidas.ipb ↗</a><a href="https://www.instagram.com/comidasdoipb/" target="_blank" rel="noopener noreferrer">@comidasdoipb ↗</a><a href="${site.repositoryUrl}" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></section><section class="panel"><h2>${t('privacy')}</h2><p>${t('privacyBody')}</p><button class="secondary-button" id="delete-data">${t('clearData')}</button></section></div>`;
+function showSupport(){utility(t('supportTitle'),'<p>'+t('supportBody')+'</p><a class="primary-button" href="mailto:ajuda.cantina.unipb@gmail.com">'+t('contactUs')+'</a><p class="help">'+t('supportThanks')+'</p>');}
+function renderAbout(){
+ $('#about-view').innerHTML='<div class="page-heading"><p class="eyebrow">AJUDA CANTINA</p><h1>'+t('aboutTitle')+'</h1><p>'+t('aboutBody')+'</p></div><div class="about-layout"><section class="panel"><h2>'+t('communityTitle')+'</h2><p>'+t('independent')+'</p><p>'+t('supportBody')+'</p><a class="inline-link" href="mailto:ajuda.cantina.unipb@gmail.com">ajuda.cantina.unipb@gmail.com</a></section><section class="panel"><h2>'+t('thanksSources')+'</h2><p>'+t('thanksSourcesBody')+'</p><div class="source-links"><a href="https://www.instagram.com/comidas.ipb/" target="_blank" rel="noopener noreferrer">@comidas.ipb ↗</a><a href="https://www.instagram.com/comidasdoipb/" target="_blank" rel="noopener noreferrer">@comidasdoipb ↗</a></div><p>'+t('rightsBody')+'</p></section><section class="panel"><h2>'+t('officialInfo')+'</h2><p>'+t('priceTimingBody')+'</p><div class="source-links"><a href="'+site.officialUrl+'" target="_blank" rel="noopener noreferrer">SAS-IPB ↗</a><a href="'+site.bookingUrl+'" target="_blank" rel="noopener noreferrer">'+t('officialMenu')+'</a></div></section><section class="panel"><h2>'+t('crowdTitle')+'</h2><p>'+t('crowdMethod')+'</p><p>'+t('crowdNoCounts')+'</p><a class="inline-link" href="#hours">'+t('seeHours')+'</a></section></div>';
 }
+function renderPrivacy(){
+ $('#privacy-view').innerHTML='<div class="page-heading"><p class="eyebrow">AJUDA CANTINA</p><h1>'+t('privacy')+'</h1><p>'+t('privacyIntro')+'</p></div><div class="about-layout"><section class="panel"><h2>'+t('onDevice')+'</h2><p>'+t('privacyBody')+'</p><p>'+t('privacyCache')+'</p><button class="secondary-button" id="delete-data">'+t('clearData')+'</button></section><section class="panel"><h2>'+t('externalServices')+'</h2><p>'+t('privacyExternal')+'</p><a class="inline-link" href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub · '+t('privacy')+'</a></section><section class="panel"><h2>'+t('contactUs')+'</h2><p>'+t('privacyEmail')+'</p><a class="inline-link" href="mailto:ajuda.cantina.unipb@gmail.com">ajuda.cantina.unipb@gmail.com</a></section></div>';
+}
+window.addEventListener('scroll',()=>{ $('#back-top').hidden=window.scrollY<600; },{passive:true});
 function navigate({scroll = false} = {}) {
   const requested = location.hash.slice(1);
-  route = ['catalog','favorites','planner','hours','about'].includes(requested) ? requested : 'catalog';
+  route = ['catalog','favorites','planner','hours','about','privacy'].includes(requested) ? requested : 'catalog';
   $$('.view').forEach(el => { el.hidden = true; });
   $(`#${route === 'favorites' ? 'catalog' : route}-view`).hidden = false;
   $$('[data-route]').forEach(el => route === el.dataset.route ? el.setAttribute('aria-current','page') : el.removeAttribute('aria-current'));
@@ -151,6 +158,7 @@ function navigate({scroll = false} = {}) {
   if (route === 'planner') renderPlanner();
   if (route === 'hours') renderHours();
   if (route === 'about') renderAbout();
+  if (route === 'privacy') renderPrivacy();
   if (scroll) { window.scrollTo({top:0,behavior:'instant'}); $('#main').focus({preventScroll:true}); }
 }
 function utility(title,body) {
@@ -165,11 +173,13 @@ document.addEventListener('click',async event => {
   if (!prefs) return;
   const detail = event.target.closest('[data-detail]'); if (detail) return openDetail(detail.dataset.detail);
   const favorite = event.target.closest('[data-favorite]'); if (favorite) return toggleFavorite(favorite.dataset.favorite);
-  const filter = event.target.closest('[data-category]'); if (filter) { category=filter.dataset.category; renderCatalog(); document.querySelector(`[data-category="${category}"]`)?.focus(); return; }
+  const filter = event.target.closest('[data-category]'); if (filter) { category=filter.dataset.category; subtype='all'; pageLimit=24; renderCatalog(); document.querySelector(`[data-category="${category}"]`)?.focus(); return; }
   const day = event.target.closest('[data-day]'); if (day) return changePlan(day.dataset.day);
   switch(event.target.closest('[id]')?.id) {
     case 'explore': event.preventDefault(); $('#dish-search').scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'}); $('#dish-search').focus({preventScroll:true}); break;
     case 'load-more': { const previous=pageLimit; pageLimit+=24; renderCatalog(); $('.dish-link')[previous]?.focus(); break; }
+    case 'back-top': window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}); $('.brand').focus({preventScroll:true}); break;
+    case 'support-open': showSupport(); break;
     case 'reset-filters': resetFilters(); $('#dish-search').focus(); break;
     case 'empty-reset': resetFilters(); if(route === 'favorites') location.hash='catalog'; break;
     case 'detail-favorite': toggleFavorite(detailId); break;
@@ -185,6 +195,8 @@ document.addEventListener('click',async event => {
     case 'clear-month': Object.keys(prefs.plan).filter(key=>key.startsWith(dateKey(calendarYear,calendarMonth,1).slice(0,7))).forEach(key=>delete prefs.plan[key]); save(); renderCalendar(); renderBudget(); $('#clear-month').focus(); break;
     case 'clear-plan': prefs.plan={}; save(); renderCalendar(); renderBudget(); break;
     case 'accessibility': utility(t('accessibility'),`<p>${t('accessibilityBody')}</p><label><input id="large-text" type="checkbox" ${prefs.largeText?'checked':''}>${t('largeText')}</label><label><input id="high-contrast" type="checkbox" ${prefs.contrast?'checked':''}>${t('highContrast')}</label>`); break;
+    case 'install-hero':
+    case 'install-promo':
     case 'install':
       if (deferredInstall) { await deferredInstall.prompt(); await deferredInstall.userChoice; deferredInstall=null; }
       else utility(t('install'),`<p>${t('installBody')}</p>`);
@@ -242,7 +254,8 @@ async function start() {
     [dishes,site]=await Promise.all(responses.map(response=>response.json()));
     let raw={}; try {raw=JSON.parse(localStorage.getItem(storageKey) || '{}');} catch { /* Defaults also handle disabled storage. */ }
     prefs=cleanPreferences(raw,dishes.map(d=>d.id),site);
-    applyPreferences(); renderStatus(); navigate(); syncConnection();
+    applyPreferences(); renderStatus(); navigate(); syncConnection(); watchSelects();
+    try { if(!sessionStorage.getItem('cantina-support-seen')){showSupport();sessionStorage.setItem('cantina-support-seen','1');} }catch{}
     setInterval(()=>{ renderStatus(); if(route==='hours') $('.hours-grid .status-pill').forEach((el,i)=>{el.textContent=statusText(site.venues[i]);el.classList.toggle('open',openingStatus(site.venues[i],new Date(),site.closures).open);}); },60000);
     if('serviceWorker' in navigator && window.isSecureContext) {
       registration=await navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'});

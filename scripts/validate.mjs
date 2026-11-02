@@ -3,11 +3,11 @@ import { resolve, relative, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 const root=fileURLToPath(new URL('../',import.meta.url));
-for(const file of ['app.js','core.mjs','crowd.mjs','i18n.js',...(await readdir(join(root,'scripts'))).filter(f=>f.endsWith('.mjs')).map(f=>'scripts/'+f)])execFileSync(process.execPath,['--check',join(root,file)],{stdio:'inherit'});
+for(const file of [...(await readdir(join(root,'src'))).filter(f=>/\.m?js$/.test(f)).map(f=>'src/'+f),...(await readdir(join(root,'scripts'))).filter(f=>f.endsWith('.mjs')).map(f=>'scripts/'+f)])execFileSync(process.execPath,['--check',join(root,file)],{stdio:'inherit'});
 const output=join(root,'dist');
 const html=await readFile(join(output,'index.html'),'utf8');
 for(const [,url] of html.matchAll(/(?:src|href)="([^"#]+)"/g)){
- if(/^(https?:|#)/.test(url))continue;
+ if(/^(https?:|mailto:|#)/.test(url))continue;
  const path=resolve(output,url);
  if(relative(output,path).startsWith('..'))throw new Error(`Path escapes build: ${url}`);
  await stat(path);

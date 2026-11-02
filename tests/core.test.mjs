@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { moneyToCents, calculateBudget, lisbonParts, openingStatus, filterDishes, cleanPreferences, isServiceDay } from '../core.mjs';
-import { dictionaries } from '../i18n.js';
+import { moneyToCents, calculateBudget, lisbonParts, openingStatus, filterDishes, cleanPreferences, isServiceDay } from '../src/core.mjs';
+import { dictionaries } from '../src/i18n.js';
 const site=JSON.parse(readFileSync(new URL('../data/site.json',import.meta.url)));
 const dishes=JSON.parse(readFileSync(new URL('../data/dishes.json',import.meta.url)));
 test('money parsing preserves cents and rejects ambiguous or invalid input',()=>{

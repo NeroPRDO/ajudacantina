@@ -14,7 +14,7 @@ for(let attempt=1;attempt<=6;attempt++){
   if(dishes.length!==release.records)throw new Error('Published catalogue and release counts differ');
   const html=await (await get('')).text();
   if(!html.includes(root.href))throw new Error('Canonical URL mismatch');
-  for(const path of ['app.js','core.mjs','crowd.mjs','i18n.js','styles.css','sw.js','manifest.webmanifest',dishes[0].image,dishes.at(-1).image])await get(path);
+  for(const path of ['app.js','core.mjs','crowd.mjs','selects.mjs','i18n.js','styles.css','sw.js','manifest.webmanifest',dishes[0].image,dishes.at(-1).image])await get(path);
   console.log(`Verified live release ${release.commit}: ${dishes.length} records and essential assets at ${root.href}`);
   process.exit(0);
  }catch(error){lastError=error;console.log(`Verification attempt ${attempt}: ${error.message}`);if(attempt<6)await new Promise(resolve=>setTimeout(resolve,10000));}

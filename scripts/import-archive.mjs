@@ -1,5 +1,5 @@
 import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
-import { normalize } from '../core.mjs';
+import { normalize } from '../src/core.mjs';
 const root = new URL('../', import.meta.url);
 const archive = JSON.parse(await readFile(new URL('imports/comidasdoipb/catalogue.json', root), 'utf8'));
 const existing = JSON.parse(await readFile(new URL('data/dishes.json', root), 'utf8')).filter(d => d.credit !== '@comidasdoipb');
