@@ -27,7 +27,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Test, build and validate all catalogue assets
         run: npm run check
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && matrix.node == '22'
         with:
           path: dist
