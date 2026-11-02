@@ -23,9 +23,9 @@ createIcons(join(root,'assets'));
 await mkdir(output,{recursive:true});
 for(const name of ['index.html','styles.css','app.js','core.mjs','i18n.js','manifest.webmanifest','assets','data']) await cp(join(root,name),join(output,name),{recursive:true});
 await writeFile(join(output,'.nojekyll'),'');
-await writeFile(join(output,'404.html'),'<!doctype html><html lang="pt"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Página não encontrada · Ajuda Cantina</title><body style="background:#15121e;color:#f7f3ff;font:20px system-ui;padding:8vw"><h1>Esta página não está na ementa.</h1><p>Page not found.</p><a style="color:#b49aff" href="/Cantina-MENU/">Voltar à Ajuda Cantina / Back to home</a></body></html>');
-await writeFile(join(output,'robots.txt'),'User-agent: *\nAllow: /\nSitemap: https://neroprdo.github.io/Cantina-MENU/sitemap.xml\n');
-await writeFile(join(output,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://neroprdo.github.io/Cantina-MENU/</loc></url></urlset>');
+await writeFile(join(output,'404.html'),'<!doctype html><html lang="pt"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Página não encontrada · Ajuda Cantina</title><body style="background:#15121e;color:#f7f3ff;font:20px system-ui;padding:8vw"><h1>Esta página não está na ementa.</h1><p>Page not found.</p><a style="color:#b49aff" href="/ajudacantina/">Voltar à Ajuda Cantina / Back to home</a></body></html>');
+await writeFile(join(output,'robots.txt'),'User-agent: *\nAllow: /\nSitemap: https://neroprdo.github.io/ajudacantina/sitemap.xml\n');
+await writeFile(join(output,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://neroprdo.github.io/ajudacantina/</loc></url></urlset>');
 async function walk(directory) { const files=[];for(const entry of await readdir(directory,{withFileTypes:true})){if(entry.name==='sw.js')continue;const path=join(directory,entry.name);if(entry.isDirectory())files.push(...await walk(path));else files.push(path);}return files.sort(); }
 const files=await walk(output);
 const hash=createHash('sha256');

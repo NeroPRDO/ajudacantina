@@ -1,6 +1,6 @@
 # Ajuda Cantina
 
-Guia comunitário da cantina do IPB, independente do IPB/SAS. Interface escura e roxa, mobile-first, sem conta e sem dependências de execução externas. Preparado para **https://neroprdo.github.io/Cantina-MENU/**.
+Guia comunitário da cantina do IPB, independente do IPB/SAS. Interface escura e roxa, mobile-first, sem conta e sem dependências de execução externas. Preparado para **https://neroprdo.github.io/ajudacantina/**.
 
 ## Executar
 
@@ -10,7 +10,7 @@ Requer Node.js 22 ou superior. Não precisa de `npm install`.
 npm run dev
 ```
 
-Abrir **http://127.0.0.1:4173/Cantina-MENU/**. O servidor também aceita `/`, para testar uma hospedagem na raiz. Para alterações no código, executar `npm run build` novamente e aceitar a atualização da aplicação no navegador. Durante desenvolvimento, pode desregistar o service worker pelas DevTools para evitar uma versão anterior em cache.
+Abrir **http://127.0.0.1:4173/ajudacantina/**. O servidor também aceita `/`, para testar uma hospedagem na raiz. Para alterações no código, executar `npm run build` novamente e aceitar a atualização da aplicação no navegador. Durante desenvolvimento, pode desregistar o service worker pelas DevTools para evitar uma versão anterior em cache.
 
 ```sh
 npm test       # regras de negócio, datas, pesquisa e idiomas
@@ -31,7 +31,7 @@ npm run check # sintaxe, testes, validação dos dados e build
 
 ## Publicação no GitHub Pages
 
-1. Enviar os ficheiros deste projeto para a branch `main` de `NeroPRDO/Cantina-MENU`.
+1. Enviar os ficheiros deste projeto para a branch `main` de `NeroPRDO/ajudacantina`.
 2. No GitHub, em **Settings → Pages → Build and deployment → Source**, selecionar **GitHub Actions**.
 3. O workflow `.github/workflows/pages.yml` valida o projeto e publica apenas `dist/`. Em PRs, executa só validação/build.
 4. Acompanhar **Actions → Validate and publish GitHub Pages** e abrir o URL devolvido pelo job `deploy`.

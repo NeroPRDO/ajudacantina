@@ -8,12 +8,12 @@ const port=Number(process.env.PORT||4173);
 const server=createServer(async(req,res)=>{
   try {
     let pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
-    if(pathname==='/Cantina-MENU'){res.writeHead(302,{Location:'/Cantina-MENU/'});res.end();return;}
-    if(pathname.startsWith('/Cantina-MENU/'))pathname=pathname.slice('/Cantina-MENU'.length);
+    if(pathname==='/ajudacantina'){res.writeHead(302,{Location:'/ajudacantina/'});res.end();return;}
+    if(pathname.startsWith('/ajudacantina/'))pathname=pathname.slice('/ajudacantina'.length);
     let path=resolve(root,'.'+pathname);
     if(path!==resolve(root)&&!path.startsWith(resolve(root)+sep)){res.writeHead(403);res.end();return;}
     if((await stat(path)).isDirectory())path=resolve(path,'index.html');
     const content=await readFile(path);res.writeHead(200,{'Content-Type':types[extname(path)]||'application/octet-stream','Cache-Control':'no-cache'});res.end(content);
   } catch {res.writeHead(404,{'Content-Type':'text/plain'});res.end('Not found');}
 });
-server.listen(port,'127.0.0.1',()=>console.log(`Local: http://127.0.0.1:${port}/Cantina-MENU/`));
+server.listen(port,'127.0.0.1',()=>console.log(`Local: http://127.0.0.1:${port}/ajudacantina/`));
