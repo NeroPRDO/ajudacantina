@@ -2,7 +2,7 @@ import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
 import { normalize } from '../src/core.mjs';
 const root = new URL('../', import.meta.url);
 const archive = JSON.parse(await readFile(new URL('imports/comidasdoipb/catalogue.json', root), 'utf8'));
-const existing = JSON.parse(await readFile(new URL('data/dishes.json', root), 'utf8')).filter(d => d.credit !== '@comidasdoipb');
+const existing = [];
 await mkdir(new URL('assets/archive/', root), { recursive: true });
 function classify(name) {
   const text = normalize(name);
@@ -29,4 +29,4 @@ for (const record of archive.records.filter(r => r.type === 'photo')) {
     collectedOn: archive.collectedOn, source: record.source, credit: '@comidasdoipb', ingredients: null, preparation: null, allergens: null, verifiedRecipe: false });
 }
 await writeFile(new URL('data/dishes.json', root), JSON.stringify(existing, null, 2) + '\n');
-console.log(`Imported ${existing.length} photographic records, including ${existing.length - 4} historical records. Unknown publication dates remain null.`);
+console.log(`Imported ${existing.length} photographic records, including ${existing.length} historical records. Unknown publication dates remain null.`);

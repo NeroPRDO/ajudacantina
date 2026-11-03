@@ -25,3 +25,10 @@ Verificado no navegador integrado, com o mesmo caminho `/Cantina-MENU/` usado pe
 ## Limites da validação
 
 Não foi realizada auditoria formal WCAG, teste em leitor de ecrã real ou instalação num dispositivo Android/iOS físico. A instalação depende do navegador; manifesto e ícones foram incluídos. Não foi testada sincronização de avaliações coletivas porque essa funcionalidade não existe nesta versão estática.
+
+## Revisão de 03/11/2026
+
+- 13 testes passaram: consentimento de Analytics, pesquisa, favoritos, preços, calendário e próxima abertura, incluindo as transições de hora de Lisboa.
+- Build e validação confirmam apenas o arquivo histórico, fontes, imagens, sitemap, dados estruturados e mural.
+- Navegador: pesquisa Salmão devolve cinco registos; Enter retira foco do campo; limpar repõe o catálogo; navegação terça → quarta altera o gráfico; mural vazio apresenta instruções de adesão.
+- Layout verificado com viewport móvel de 390 × 844. A instalação em dispositivos reais depende do navegador; modo instalado é detetado por display-mode e navigator.standalone.

@@ -42,3 +42,26 @@ export function cleanPreferences(raw, ids, site) {
   const plan = Object.fromEntries(Object.entries(raw?.plan || {}).filter(([key,row]) => row && typeof row === 'object' && isServiceDay(key,site.venues[0],site.closures)).map(([key,row]) => [key,{lunch:row.lunch === true,dinner:row.dinner === true}]).filter(([,row]) => row.lunch || row.dinner));
   return { favorites, ratings, plan, locale: ['pt-PT','pt-BR','en','fr','es'].includes(raw?.locale) ? raw.locale : 'pt-PT', largeText: raw?.largeText === true, contrast: raw?.contrast === true, balance: moneyToCents(raw?.balance) !== null ? String(raw.balance) : '0', lunch: moneyToCents(raw?.lunch) > 0 ? String(raw.lunch) : '', dinner: moneyToCents(raw?.dinner) > 0 ? String(raw.dinner) : '' };
 }
+
+// Convert each Lisbon calendar opening to an instant; iteration resolves summer offset.
+export function minutesUntilOpening(venue, now=new Date(), closures=[]) {
+  if(openingStatus(venue,now,closures).open) return 0;
+  const local=lisbonParts(now), candidates=[];
+  for(let day=0;day<15;day++){
+    const calendar=new Date(Date.UTC(local.year,local.month,local.day+day));
+    const key=calendar.toISOString().slice(0,10);
+    if(!isServiceDay(key,venue,closures)) continue;
+    for(const [start] of venue.slots){
+      const [h,m]=start.split(':').map(Number);
+      const desired=+calendar+(h*60+m)*60000;
+      let instant=desired;
+      for(let i=0;i<3;i++){
+        const p=lisbonParts(new Date(instant));
+        const represented=Date.UTC(p.year,p.month,p.day)+p.minutes*60000;
+        instant+=desired-represented;
+      }
+      if(instant>+now) candidates.push(instant);
+    }
+  }
+  return candidates.length?Math.ceil((Math.min(...candidates)-now)/60000):null;
+}

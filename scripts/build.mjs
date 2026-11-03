@@ -2,6 +2,7 @@ import { readFile, writeFile, mkdir, cp, readdir, stat, rm } from 'node:fs/promi
 import { resolve, relative, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
+import { buildSEO } from './seo.mjs';
 import { createIcons } from './icons.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const output=resolve(root,'dist');
@@ -27,9 +28,10 @@ for(const name of ['index.html','manifest.webmanifest','assets','data']) await c
 for(const name of await readdir(join(root,'src')))await cp(join(root,'src',name),join(output,name),{recursive:true});
 await writeFile(join(output,'.nojekyll'),'');
 await writeFile(join(output,'release.json'),JSON.stringify({commit:process.env.GITHUB_SHA || 'local',records:dishes.length}));
-await writeFile(join(output,'404.html'),'<!doctype html><html lang="pt"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Página não encontrada · Ajuda Cantina</title><body style="background:#15121e;color:#f7f3ff;font:20px system-ui;padding:8vw"><h1>Esta página não está na ementa.</h1><p>Page not found.</p><a style="color:#b49aff" href="/ajudacantina/">Voltar à Ajuda Cantina / Back to home</a></body></html>');
+await writeFile(join(output,'404.html'),'<!doctype html><html lang="pt"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Página não encontrada · ajuda.cantina</title><body style="background:#15121e;color:#f7f3ff;font:20px system-ui;padding:8vw"><h1>Esta página não está na ementa.</h1><p>Page not found.</p><a style="color:#b49aff" href="/ajudacantina/">Voltar à ajuda.cantina / Back to home</a></body></html>');
 await writeFile(join(output,'robots.txt'),'User-agent: *\nAllow: /\nSitemap: https://neroprdo.github.io/ajudacantina/sitemap.xml\n');
 await writeFile(join(output,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://neroprdo.github.io/ajudacantina/</loc></url></urlset>');
+await buildSEO(output,dishes);
 async function walk(directory) { const files=[];for(const entry of await readdir(directory,{withFileTypes:true})){if(entry.name==='sw.js')continue;const path=join(directory,entry.name);if(entry.isDirectory())files.push(...await walk(path));else files.push(path);}return files.sort(); }
 const files=await walk(output);
 const hash=createHash('sha256');
@@ -40,7 +42,7 @@ const worker=`// Generated from the content hash; do not edit dist directly.
 const PREFIX='ajuda-cantina-'+new URL(self.registration.scope).pathname+'-';
 const CACHE=PREFIX+'${version}';
 const ASSETS=${JSON.stringify(assets)};
-self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)));});
+self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(async cache=>{await cache.addAll(ASSETS);await self.skipWaiting();}));});
 self.addEventListener('activate',event=>{event.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith(PREFIX)&&key!==CACHE)await caches.delete(key);await self.clients.claim();})());});
 self.addEventListener('message',event=>{if(event.data?.type==='SKIP_WAITING')self.skipWaiting();});
 self.addEventListener('fetch',event=>{

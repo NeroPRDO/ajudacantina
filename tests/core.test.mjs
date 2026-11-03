@@ -1,10 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { moneyToCents, calculateBudget, lisbonParts, openingStatus, filterDishes, cleanPreferences, isServiceDay } from '../src/core.mjs';
+import { moneyToCents, calculateBudget, lisbonParts, openingStatus, minutesUntilOpening, filterDishes, cleanPreferences, isServiceDay } from '../src/core.mjs';
 import { dictionaries } from '../src/i18n.js';
 const site=JSON.parse(readFileSync(new URL('../data/site.json',import.meta.url)));
-const dishes=JSON.parse(readFileSync(new URL('../data/dishes.json',import.meta.url)));
+const catalogue=JSON.parse(readFileSync(new URL('../data/dishes.json',import.meta.url)));
+const dishes=[{id:'almondegas',name:'Almôndegas',categories:['meat']},{id:'soja',name:'Soja',translations:{en:'Soya'},categories:['vegetarian']},{id:'lasanha',name:'Lasanha',translations:{en:'Lasagna'},categories:['pasta']}];
 test('money parsing preserves cents and rejects ambiguous or invalid input',()=>{
   assert.equal(moneyToCents('2,85'),285);assert.equal(moneyToCents(' 3.1 '),310);assert.equal(moneyToCents('0'),0);
   for(const value of ['',null,undefined,'-1','Infinity','NaN','2.855','1.000,00','1e3'])assert.equal(moneyToCents(value),null);
@@ -52,5 +53,15 @@ test('every supported language has a complete interface dictionary',()=>{
 });
 test('catalogue has traceable sources and no fabricated recipes',()=>{
   assert.equal(new Set(dishes.map(d=>d.id)).size,dishes.length);
-  for(const dish of dishes){assert.ok(dish.source.startsWith('https://www.instagram.com/'));assert.ok(dish.credit);assert.equal(dish.verifiedRecipe,false);assert.equal(dish.allergens,null);}
+  for(const dish of catalogue){assert.equal(dish.credit,"@comidasdoipb");assert.ok(dish.source.startsWith('https://www.instagram.com/'));assert.ok(dish.credit);assert.equal(dish.verifiedRecipe,false);assert.equal(dish.allergens,null);}
+});
+
+test('next opening crosses nights, weekends, closures and Lisbon DST',()=>{
+const v=site.venues[0];
+assert.equal(minutesUntilOpening(v,new Date('2026-11-02T18:55:00Z')),35);
+assert.equal(minutesUntilOpening(v,new Date('2026-11-02T12:05:00Z')),0);
+assert.equal(minutesUntilOpening(v,new Date('2026-11-07T22:00:00Z')),2280);
+assert.equal(minutesUntilOpening(v,new Date('2026-03-28T22:00:00Z')),2220);
+assert.equal(minutesUntilOpening(v,new Date('2026-10-24T21:00:00Z')),2340);
+assert.equal(minutesUntilOpening(v,new Date('2026-11-02T11:00:00Z'),['2026-11-02']),1500);
 });

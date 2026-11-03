@@ -17,18 +17,7 @@
 
 ## Fotografias verificadas
 
-As quatro fotografias foram obtidas das miniaturas publicamente acessíveis do perfil fornecido pelo utilizador. Os nomes estão escritos nas próprias imagens. Originais preservados, sem recortar os ficheiros; o cartão usa `object-fit`, e a ficha mostra a imagem completa.
-
-| Ficheiro | Prato | Publicação |
-| --- | --- | --- |
-| assets/lasanha.jpg | Lasanha | https://www.instagram.com/comidas.ipb/p/DfIqhXEN9xn/ |
-| assets/costeletas.jpg | Costeletas de porco a salsicheito | https://www.instagram.com/comidas.ipb/p/DfFHUIltdtX/ |
-| assets/soja.jpg | Soja salteada | https://www.instagram.com/comidas.ipb/p/DfFHQkSN5o-/ |
-| assets/almondegas.jpg | Almôndegas estufadas | https://www.instagram.com/comidas.ipb/p/DfFHJ6uNWlL/ |
-
-Crédito: **@comidas.ipb**. As publicações são de 29 e 30/10/2026. O texto “a salsicheito” é preservado da imagem original, mesmo que seja uma grafia incomum. A categoria vegetariana da soja vem do próprio post, não constitui certificação de receita ou ausência de alergénios.
-
-O perfil https://www.instagram.com/comidasdoipb/ mostra um acervo histórico, incluindo publicações de 2023 e 2024. As miniaturas acessíveis não identificam os nomes, e abrir publicações exige login. Não foi realizado login, nem extração de dados privados. Completar o acervo depende de exportação dos responsáveis ou acesso público verificável.
+O catálogo apresenta exclusivamente o arquivo histórico de @comidasdoipb, com crédito e ligação por publicação. Ver ARCHIVE-RELEASE.md para o processo de recolha.
 
 ## Referências de interface
 
@@ -49,3 +38,7 @@ Referências técnicas oficiais:
 ## Conteúdo deliberadamente não inventado
 
 Não foram criadas fotografias sintéticas de refeições, preços atuais, avaliações coletivas, medições de lotação, ingredientes, tempos de preparação ou ementas do dia. O gráfico da calculadora deriva exclusivamente das escolhas locais do utilizador.
+
+## Take-away — revisão de 03/11/2026
+
+O Despacho 109/IPB/2020 (https://webdocs.ipb.pt/portal/download?docId=23072), secção III.5, descrevia opção na reserva, custo de embalagem e levantamento do jantar ao almoço. Documento de contexto pandémico de 2020: não confirma regras vigentes. A aplicação orienta confirmar disponibilidade, preço e recolha junto dos SAS e não promete levantamento antecipado nem cita uma taxa atual.

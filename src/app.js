@@ -1,6 +1,7 @@
-import { normalize, moneyToCents, calculateBudget, lisbonParts, dateKey, isServiceDay, openingStatus, filterDishes, cleanPreferences } from './core.mjs';
+import { normalize, moneyToCents, calculateBudget, lisbonParts, dateKey, isServiceDay, openingStatus, minutesUntilOpening, filterDishes, cleanPreferences } from './core.mjs';
 import { crowdForDay, averageIntensity } from './crowd.mjs';
 import { watchSelects } from './selects.mjs';
+import { startAnalytics, trackPage } from './analytics.mjs';
 import { translate } from './i18n.js';
 
 const $ = selector => document.querySelector(selector);
@@ -10,7 +11,7 @@ const storageKey = 'ajuda-cantina-v1';
 const categories = { all:'🍽️', meat:'🍗', fish:'🐟', vegetarian:'🌱', eggs:'🥚', pasta:'🍝', soup:'🥣', dessert:'🍮', other:'🔎' };
 let subtype='all', minRating=0, pageLimit=24, crowdDay=lisbonParts().weekday;
 const subtypeKeys=['chicken','turkey','beef','pork','lamb','duck','tofu','soy','seitan','chickpeas','beans','mushrooms','vegetables','eggs','seafood','salmon','hake','cod','fillet','grilled','baked'];
-let dishes = [], site, prefs, route = 'catalog', category = 'all', search = '', sort = 'recent', deferredInstall, registration;
+let dishes = [], wall = [], site, prefs, route = 'catalog', category = 'all', search = '', sort = 'recent', deferredInstall, registration;
 let calendarMonth = lisbonParts().month, calendarYear = lisbonParts().year;
 let mealSelection = { lunch:true, dinner:false }, toastTimer, detailId;
 const t = key => translate(prefs?.locale || 'pt-PT',key);
@@ -42,6 +43,8 @@ function applyPreferences() {
 }
 function statusText(venue) {
   const status = openingStatus(venue,new Date(),site.closures);
+  const minutes=minutesUntilOpening(venue,new Date(),site.closures);
+  if(!status.open && minutes!==null) return `${t('opensIn')} ${Math.floor(minutes/60)}h ${minutes%60}min`;
   return status.open ? `${t('openUntil')} ${status.next}` : status.next ? `${t('opensAt')} ${status.next}` : t('closed');
 }
 function renderStatus() { if (site) $('#quick-status').textContent = statusText(site.venues[0]); }
@@ -133,32 +136,33 @@ function changeMonth(offset) {
 }
 function crowdMarkup() {
   const slots=crowdForDay(crowdDay);
-  const days=[1,2,3,4,5,6,0].map(day=>'<option value="'+day+'" '+(day===crowdDay?'selected':'')+'>'+new Intl.DateTimeFormat(prefs.locale,{weekday:'long',timeZone:'UTC'}).format(new Date(Date.UTC(2024,0,day===0?7:day)))+'</option>').join('');
-  return '<section class="panel crowd-panel"><span class="count-pill">'+t('estimate')+'</span><h2>'+t('crowdTitle')+'</h2><p>'+t('crowdMethod')+'</p><label for="crowd-day">'+t('chooseDay')+'<select id="crowd-day">'+days+'</select></label><p class="help">'+t('crowdPeaks')+'</p><div class="crowd-charts">'+(slots.length?slots.map(slot=>'<figure><figcaption><strong>'+t(slot.meal)+'</strong> · '+t('modelMean')+' '+averageIntensity(slot.points)+'/100</figcaption><div class="crowd-bars" aria-hidden="true">'+slot.points.map(([time,value])=>'<div class="crowd-column"><span style="height:'+value+'%"></span><small>'+time+'</small></div>').join('')+'</div><details><summary>'+t('chartTable')+'</summary><table><thead><tr><th>'+t('hours')+'</th><th>'+t('intensity')+'</th></tr></thead><tbody>'+slot.points.map(([time,value])=>'<tr><th scope="row">'+time+'</th><td>'+value+'/100</td></tr>').join('')+'</tbody></table></details></figure>').join(''):'<p>'+t('closed')+'</p>')+'</div><p class="help">'+t('crowdNoCounts')+'</p><a class="inline-link" href="https://www.google.com/maps/search/Cantina+IPB+Bragan%C3%A7a" target="_blank" rel="noopener noreferrer">Google Maps ↗</a> · <a class="inline-link" href="https://pt.restaurantguru.com/Cantina-IPB-Braganca" target="_blank" rel="noopener noreferrer">Restaurant Guru ↗</a></section>';
+  const dayName=new Intl.DateTimeFormat(prefs.locale,{weekday:'long',timeZone:'UTC'}).format(new Date(Date.UTC(2024,0,crowdDay===0?7:crowdDay)));
+  return '<section class="panel crowd-panel"><span class="count-pill">'+t('estimate')+'</span><h2>'+t('crowdTitle')+'</h2><p>'+t('crowdMethod')+'</p><div class="day-carousel"><button id="previous-day" aria-label="'+t('previousDay')+'">←</button><strong role="status">'+dayName+'</strong><button id="next-day" aria-label="'+t('nextDay')+'">→</button></div><p class="help">'+t('crowdPeaks')+'</p><div class="crowd-charts">'+(slots.length?slots.map(slot=>'<figure><figcaption><strong>'+t(slot.meal)+'</strong> · '+t('modelMean')+' '+averageIntensity(slot.points)+'/100</figcaption><div class="crowd-bars" aria-hidden="true">'+slot.points.map(([time,value])=>'<div class="crowd-column"><span style="height:'+value+'%"></span><small>'+time+'</small></div>').join('')+'</div><details><summary>'+t('chartTable')+'</summary><table><thead><tr><th>'+t('hours')+'</th><th>'+t('intensity')+'</th></tr></thead><tbody>'+slot.points.map(([time,value])=>'<tr><th scope="row">'+time+'</th><td>'+value+'/100</td></tr>').join('')+'</tbody></table></details></figure>').join(''):'<p>'+t('closed')+'</p>')+'</div><p class="help">'+t('crowdNoCounts')+'</p><a class="inline-link" href="https://www.google.com/maps/search/Cantina+IPB+Bragan%C3%A7a" target="_blank" rel="noopener noreferrer">Google Maps ↗</a> · <a class="inline-link" href="https://pt.restaurantguru.com/Cantina-IPB-Braganca" target="_blank" rel="noopener noreferrer">Restaurant Guru ↗</a></section>';
 }
 function renderHours() {
-  $('#hours-view').innerHTML = `<div class="page-heading"><p class="eyebrow">${t('hoursEyebrow')}</p><h1>${t('hoursTitle')}</h1><p>${t('hoursIntro')}</p></div><div class="hours-grid">${site.venues.map(venue=>`<section class="panel"><span class="status-pill ${openingStatus(venue).open ? 'open' : ''}">${statusText(venue)}</span><h2>${escape(venue.name)}</h2><p class="help">${t(venue.days.includes(6) ? 'monSat' : 'monFri')}</p>${venue.slots.map(([from,to],i)=>`<div class="time-row"><span>${t(i === 0 ? 'lunch' : 'dinner')}</span><strong>${from} – ${to}</strong></div>`).join('')}</section>`).join('')}</div><div class="hours-note"><p class="help">${t('exceptions')}</p><p class="help">${t('verifiedOn')} ${dateLabel(site.verifiedOn)} · <a class="inline-link" href="${site.officialUrl}" target="_blank" rel="noopener noreferrer">${t('officialHours')}</a></p></div>${crowdMarkup()}`;
+  $('#hours-view').innerHTML = `<div class="page-heading"><p class="eyebrow">${t('hoursEyebrow')}</p><h1>${t('hoursTitle')}</h1><p>${t('hoursIntro')}</p></div><div class="hours-grid">${site.venues.map(venue=>`<section class="panel"><span class="status-pill ${openingStatus(venue).open ? 'open' : ''}">${statusText(venue)}</span><h2>${escape(venue.name)}</h2><p class="help">${t(venue.days.includes(6) ? 'monSat' : 'monFri')}</p>${venue.slots.map(([from,to],i)=>`<div class="time-row"><span>${t(i === 0 ? 'lunch' : 'dinner')}</span><strong>${from} – ${to}</strong></div>`).join('')}</section>`).join('')}</div><div class="hours-note"><p class="help">${t('exceptions')}</p><p class="help">${t('verifiedOn')} ${dateLabel(site.verifiedOn)} · <a class="inline-link" href="${site.officialUrl}" target="_blank" rel="noopener noreferrer">${t('officialHours')}</a></p></div><section class="panel"><h2>${t("takeaway")}</h2><p>${t("takeawayBody")}</p><p class="help">${t("takeawayHistory")}</p><a class="inline-link" href="https://webdocs.ipb.pt/portal/download?docId=23072">Despacho 109/IPB/2020 ↗</a> · <a class="inline-link" href="${site.officialUrl}">SAS ↗</a> · <a class="inline-link" href="${site.bookingUrl}">${t("officialMenu")}</a></section>${crowdMarkup()}`;
 }
-function showSupport(){utility(t('supportTitle'),'<p>'+t('supportBody')+'</p><a class="primary-button" href="mailto:ajuda.cantina.unipb@gmail.com">'+t('contactUs')+'</a><p class="help">'+t('supportThanks')+'</p>');}
 function renderAbout(){
- $('#about-view').innerHTML='<div class="page-heading"><p class="eyebrow">AJUDA CANTINA</p><h1>'+t('aboutTitle')+'</h1><p>'+t('aboutBody')+'</p></div><div class="about-layout"><section class="panel"><h2>'+t('communityTitle')+'</h2><p>'+t('independent')+'</p><p>'+t('supportBody')+'</p><a class="inline-link" href="mailto:ajuda.cantina.unipb@gmail.com">ajuda.cantina.unipb@gmail.com</a></section><section class="panel"><h2>'+t('thanksSources')+'</h2><p>'+t('thanksSourcesBody')+'</p><div class="source-links"><a href="https://www.instagram.com/comidas.ipb/" target="_blank" rel="noopener noreferrer">@comidas.ipb ↗</a><a href="https://www.instagram.com/comidasdoipb/" target="_blank" rel="noopener noreferrer">@comidasdoipb ↗</a></div><p>'+t('rightsBody')+'</p></section><section class="panel"><h2>'+t('officialInfo')+'</h2><p>'+t('priceTimingBody')+'</p><div class="source-links"><a href="'+site.officialUrl+'" target="_blank" rel="noopener noreferrer">SAS-IPB ↗</a><a href="'+site.bookingUrl+'" target="_blank" rel="noopener noreferrer">'+t('officialMenu')+'</a></div></section><section class="panel"><h2>'+t('crowdTitle')+'</h2><p>'+t('crowdMethod')+'</p><p>'+t('crowdNoCounts')+'</p><a class="inline-link" href="#hours">'+t('seeHours')+'</a></section></div>';
+ $('#about-view').innerHTML='<div class="page-heading"><p class="eyebrow">ajuda.cantina</p><h1>'+t('aboutTitle')+'</h1><p>'+t('aboutBody')+'</p></div><div class="about-layout"><section class="panel"><h2>'+t('communityTitle')+'</h2><p>'+t('independent')+'</p><p>'+t('supportBody')+'</p><a class="inline-link" href="mailto:ajuda.cantina.unipb@gmail.com">ajuda.cantina.unipb@gmail.com</a></section><section class="panel"><h2>'+t('thanksSources')+'</h2><p>'+t('thanksSourcesBody')+'</p><div class="source-links"><a href="https://www.instagram.com/comidasdoipb/" target="_blank" rel="noopener noreferrer">@comidasdoipb ↗</a></div><p>'+t('rightsBody')+'</p></section><section class="panel"><h2>'+t('officialInfo')+'</h2><p>'+t('priceTimingBody')+'</p><div class="source-links"><a href="'+site.officialUrl+'" target="_blank" rel="noopener noreferrer">SAS-IPB ↗</a><a href="'+site.bookingUrl+'" target="_blank" rel="noopener noreferrer">'+t('officialMenu')+'</a></div></section><section class="panel"><h2>'+t('crowdTitle')+'</h2><p>'+t('crowdMethod')+'</p><p>'+t('crowdNoCounts')+'</p><a class="inline-link" href="#hours">'+t('seeHours')+'</a></section></div>';
 }
 function renderPrivacy(){
- $('#privacy-view').innerHTML='<div class="page-heading"><p class="eyebrow">AJUDA CANTINA</p><h1>'+t('privacy')+'</h1><p>'+t('privacyIntro')+'</p></div><div class="about-layout"><section class="panel"><h2>'+t('onDevice')+'</h2><p>'+t('privacyBody')+'</p><p>'+t('privacyCache')+'</p><button class="secondary-button" id="delete-data">'+t('clearData')+'</button></section><section class="panel"><h2>'+t('externalServices')+'</h2><p>'+t('privacyExternal')+'</p><a class="inline-link" href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub · '+t('privacy')+'</a></section><section class="panel"><h2>'+t('contactUs')+'</h2><p>'+t('privacyEmail')+'</p><a class="inline-link" href="mailto:ajuda.cantina.unipb@gmail.com">ajuda.cantina.unipb@gmail.com</a></section></div>';
+ $('#privacy-view').innerHTML='<div class="page-heading"><p class="eyebrow">ajuda.cantina</p><h1>'+t('privacy')+'</h1><p>'+t('privacyIntro')+'</p></div><div class="about-layout"><section class="panel"><h2>'+t('analyticsTitle')+'</h2><p>'+t('analyticsPrivacy')+'</p><button class="secondary-button" data-analytics="settings">'+t('analyticsSettings')+'</button><h2>'+t('onDevice')+'</h2><p>'+t('privacyBody')+'</p><p>'+t('privacyCache')+'</p><button class="secondary-button" id="delete-data">'+t('clearData')+'</button></section><section class="panel"><h2>'+t('externalServices')+'</h2><p>'+t('privacyExternal')+'</p><a class="inline-link" href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub · '+t('privacy')+'</a></section><section class="panel"><h2>'+t('contactUs')+'</h2><p>'+t('privacyEmail')+'</p><a class="inline-link" href="mailto:ajuda.cantina.unipb@gmail.com">ajuda.cantina.unipb@gmail.com</a></section></div>';
 }
 window.addEventListener('scroll',()=>{ $('#back-top').hidden=window.scrollY<600; },{passive:true});
 function navigate({scroll = false} = {}) {
   const requested = location.hash.slice(1);
-  route = ['catalog','favorites','planner','hours','about','privacy'].includes(requested) ? requested : 'catalog';
+  route = ['catalog','favorites','planner','hours','about','privacy','wall'].includes(requested) ? requested : 'catalog';
   $$('.view').forEach(el => { el.hidden = true; });
   $(`#${route === 'favorites' ? 'catalog' : route}-view`).hidden = false;
   $$('[data-route]').forEach(el => route === el.dataset.route ? el.setAttribute('aria-current','page') : el.removeAttribute('aria-current'));
-  document.title = `${t(route === 'catalog' ? 'catalog' : route)} · Ajuda Cantina`;
+  document.title = route==='catalog'?'ajuda.cantina | Cantina IPB em Bragança — pratos e horários':`${t(route)} · ajuda.cantina`;
+  trackPage();
   if (route === 'catalog' || route === 'favorites') renderCatalog();
   if (route === 'planner') renderPlanner();
   if (route === 'hours') renderHours();
   if (route === 'about') renderAbout();
   if (route === 'privacy') renderPrivacy();
+  if (route === 'wall') $('#wall-view').innerHTML='<div class="page-heading"><h1>'+t('wall')+'</h1><p>'+t('wallBody')+'</p><a class="inline-link" href="mailto:ajuda.cantina.unipb@gmail.com">ajuda.cantina.unipb@gmail.com</a></div><section class="panel">'+(wall.length?'<ul>'+wall.map(entry=>'<li>'+escape(entry.name)+'</li>').join('')+'</ul>':'<p>'+t('wallEmpty')+'</p>')+'</section>';
   if (scroll) { window.scrollTo({top:0,behavior:'instant'}); $('#main').focus({preventScroll:true}); }
 }
 function utility(title,body) {
@@ -177,9 +181,11 @@ document.addEventListener('click',async event => {
   const day = event.target.closest('[data-day]'); if (day) return changePlan(day.dataset.day);
   switch(event.target.closest('[id]')?.id) {
     case 'explore': event.preventDefault(); $('#dish-search').scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'}); $('#dish-search').focus({preventScroll:true}); break;
-    case 'load-more': { const previous=pageLimit; pageLimit+=24; renderCatalog(); $('.dish-link')[previous]?.focus(); break; }
+    case 'clear-search': search=''; $('#dish-search').value=''; pageLimit=24; renderCatalog(); $('#dish-search').focus(); break;
+    case 'previous-day':
+    case 'next-day': { const id=event.target.closest('[id]').id; crowdDay=(crowdDay+(id==='next-day'?1:6))%7; renderHours(); $('#'+id).focus(); break; }
+    case 'load-more': { const previous=pageLimit; pageLimit+=24; renderCatalog(); $$('.dish-link')[previous]?.focus(); break; }
     case 'back-top': window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}); $('.brand').focus({preventScroll:true}); break;
-    case 'support-open': showSupport(); break;
     case 'reset-filters': resetFilters(); $('#dish-search').focus(); break;
     case 'empty-reset': resetFilters(); if(route === 'favorites') location.hash='catalog'; break;
     case 'detail-favorite': toggleFavorite(detailId); break;
@@ -247,16 +253,19 @@ $('#retry').addEventListener('click',()=>location.reload());
 $('#detail-dialog').addEventListener('close',()=>{ document.querySelector(`[data-detail="${detailId}"]`)?.focus({preventScroll:true}); });
 document.addEventListener('error',event=>{ if(event.target.tagName==='IMG') event.target.alt=t('unavailablePhoto'); },true);
 
+function syncInstall(){const installed=['standalone','fullscreen','minimal-ui'].some(mode=>matchMedia('(display-mode: '+mode+')').matches)||navigator.standalone===true; document.querySelectorAll('.install-banner,#install,#install-hero').forEach(el=>el.hidden=installed);}
+window.addEventListener('appinstalled',()=>{document.querySelectorAll('.install-banner,#install,#install-hero').forEach(el=>el.hidden=true);deferredInstall=null;});
+for(const mode of ['standalone','fullscreen','minimal-ui']) matchMedia('(display-mode: '+mode+')').addEventListener('change',syncInstall);
+$('#search-form').addEventListener('submit',event=>{event.preventDefault();$('#dish-search').blur();});
 async function start() {
   try {
-    const responses=await Promise.all([fetch('./data/dishes.json'),fetch('./data/site.json')]);
+    const responses=await Promise.all([fetch('./data/dishes.json'),fetch('./data/site.json'),fetch('./data/wall.json')]);
     if(responses.some(response=>!response.ok)) throw new Error('Unable to fetch data');
-    [dishes,site]=await Promise.all(responses.map(response=>response.json()));
+    [dishes,site,wall]=await Promise.all(responses.map(response=>response.json()));
     let raw={}; try {raw=JSON.parse(localStorage.getItem(storageKey) || '{}');} catch { /* Defaults also handle disabled storage. */ }
     prefs=cleanPreferences(raw,dishes.map(d=>d.id),site);
-    applyPreferences(); renderStatus(); navigate(); syncConnection(); watchSelects();
-    try { if(!sessionStorage.getItem('cantina-support-seen')){showSupport();sessionStorage.setItem('cantina-support-seen','1');} }catch{}
-    setInterval(()=>{ renderStatus(); if(route==='hours') $('.hours-grid .status-pill').forEach((el,i)=>{el.textContent=statusText(site.venues[i]);el.classList.toggle('open',openingStatus(site.venues[i],new Date(),site.closures).open);}); },60000);
+    applyPreferences(); renderStatus(); navigate(); syncConnection(); watchSelects(); syncInstall(); startAnalytics();
+    setInterval(()=>{ renderStatus(); if(route==='hours') $$('.hours-grid .status-pill').forEach((el,i)=>{el.textContent=statusText(site.venues[i]);el.classList.toggle('open',openingStatus(site.venues[i],new Date(),site.closures).open);}); },60000);
     if('serviceWorker' in navigator && window.isSecureContext) {
       registration=await navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'});
       const showUpdate=()=>{if(registration.waiting) $('#update-banner').hidden=false;};
@@ -271,7 +280,7 @@ async function start() {
     }
   } catch(error) {
     if(!prefs) { $$('.view').forEach(el=>{el.hidden=true;}); $('#load-error').hidden=false; }
-    console.error('Ajuda Cantina:',error);
+    console.error('ajuda.cantina:',error);
   }
 }
 start();

@@ -12,11 +12,11 @@ Tab percorre os controles; Enter ou Espaço abre e seleciona. Setas percorrem op
 
 ## Apoio, instalação e privacidade
 
-O aviso de orçamento zero aparece uma vez por sessão da aba, guardando apenas `cantina-support-seen` em `sessionStorage`. Pode ser reaberto no rodapé. O link de contacto abre o cliente de correio; a aplicação não envia email automaticamente.
+A informação de orçamento zero fica apenas no rodapé; não há popup de apoio.
 
 Os controles de instalação usam o evento de instalação do navegador quando disponível e apresentam instruções nos restantes casos. O botão de topo aparece após deslocação suficiente, respeita movimento reduzido e devolve foco à marca da página.
 
-As rotas `#about` e `#privacy` são separadas. O botão de apagar dados elimina as preferências da aplicação; o texto explica que cache offline e marcador da sessão podem ser removidos nas definições do navegador.
+As rotas `#about` e `#privacy` são separadas. O botão de apagar dados elimina as preferências da aplicação; o texto explica que cache offline podem ser removidos nas definições do navegador.
 
 ## Validações da revisão
 
@@ -24,7 +24,7 @@ As rotas `#about` e `#privacy` são separadas. O botão de apagar dados elimina 
 - Menu escuro: Peixe → Pescada filtrou o catálogo; a seleção traduziu para “Hake” ao mudar para inglês.
 - Os seis dias de serviço apresentaram perfis distintos; domingo sem gráfico.
 - Setas, Enter e Escape funcionaram nos menus; Escape fechou sem deixar o painel aberto.
-- Aviso de apoio apresentou o contacto e não voltou a abrir após recarregar na mesma sessão.
+- O aviso de apoio foi substituído por informação permanente no rodapé.
 - Planeador mostrou o aviso de antecedência e preçários distintos; privacidade abriu na rota própria.
 - Viewports de 390 px e 320 px, incluindo texto ampliado, sem transbordamento horizontal da página.
 - Voltar ao topo levou a deslocação a zero e devolveu foco à marca.

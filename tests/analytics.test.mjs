@@ -1,0 +1,24 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import vm from 'node:vm';
+import {readFileSync} from 'node:fs';
+const source=readFileSync(new URL('../src/analytics.mjs',import.meta.url),'utf8').replaceAll('export ','');
+test('analytics makes no request before consent; accepts, deduplicates routes and stops on withdrawal',()=>{
+ const calls=[],scripts=[],events={},saved=new Map();
+ const banner={hidden:true,querySelector:()=>({focus(){}})};
+ const window={addEventListener(){}};
+ const document={title:'Ajuda Cantina',cookie:'',getElementById:id=>id==='analytics-consent'?banner:{focus(){}},addEventListener:(type,fn)=>events[type]=fn,createElement:()=>({}),head:{append:script=>scripts.push(script)}};
+ const context=vm.createContext({window,document,location:{hash:'#catalog',origin:'https://example.test',pathname:'/cantina/',hostname:'example.test'},localStorage:{getItem:key=>saved.get(key)??null,setItem:(k,v)=>saved.set(k,v)},Set});
+ vm.runInContext(source+'\nstartAnalytics();',context);
+ assert.equal(scripts.length,0);assert.equal(banner.hidden,false);
+ const click=action=>events.click({target:{closest:()=>({dataset:{analytics:action}})}});
+ click('reject');assert.equal(scripts.length,0);assert.equal(banner.hidden,true);
+ click('accept');assert.equal(scripts.length,1);
+ const views=()=>window.dataLayer.filter(args=>args[0]==='event'&&args[1]==='page_view');
+ assert.equal(views().length,1);
+ vm.runInContext('trackPage()',context);assert.equal(views().length,1);
+ context.location.hash='#hours';vm.runInContext('trackPage()',context);assert.equal(views().length,2);
+ assert.equal(views()[1][2].page_location,'https://example.test/cantina/#hours');
+ click('reject');context.location.hash='#planner';vm.runInContext('trackPage()',context);assert.equal(views().length,2);
+ assert.equal(window['ga-disable-G-SVH473JREE'],true);
+});

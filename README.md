@@ -1,6 +1,6 @@
 <div align="center">
 
-# Ajuda Cantina
+# ajuda.cantina
 
 ### Da comunidade, para a tua bandeja.
 
@@ -14,7 +14,7 @@ Um guia independente para descobrir refeições, guardar favoritos e planear a v
 
 </div>
 
-> **Independente e feito para a comunidade.** A Ajuda Cantina não representa o IPB nem os Serviços de Ação Social (SAS). Não substitui as ementas, reservas, preços ou orientações dos serviços oficiais.
+> **Independente e feito para a comunidade.** A ajuda.cantina não representa o IPB nem os Serviços de Ação Social (SAS). Não substitui as ementas, reservas, preços ou orientações dos serviços oficiais.
 
 ## Navegação
 
@@ -22,7 +22,7 @@ Um guia independente para descobrir refeições, guardar favoritos e planear a v
 
 ## O projeto
 
-A Ajuda Cantina aproxima informação que costuma estar dispersa: fotografias de refeições, horários, favoritos pessoais e planeamento de despesas. O catálogo cresce com as contribuições e preserva a origem de cada registro.
+A ajuda.cantina aproxima informação que costuma estar dispersa: fotografias de refeições, horários, favoritos pessoais e planeamento de despesas. O catálogo cresce com as contribuições e preserva a origem de cada registro.
 
 É um **arquivo visual, não a ementa do dia**. O mesmo prato pode aparecer em publicações diferentes, com acompanhamentos ou apresentação diferentes. O contador da aplicação reflete o catálogo disponível; não pretende contar receitas únicas.
 
@@ -44,12 +44,12 @@ A interface suporta português de Portugal e do Brasil, inglês, francês e espa
 
 ## Instalar a aplicação
 
-Abra a aplicação e escolha **Instalar aplicação**, disponível no destaque inicial e na secção de instalação. Quando o navegador suporta instalação direta, aparece o diálogo do sistema. Nos restantes casos, a aplicação apresenta instruções.
+Abra a aplicação e escolha **Instalar aplicação**, disponível na secção de instalação e no rodapé. Quando o navegador suporta instalação direta, aparece o diálogo do sistema. Nos restantes casos, a aplicação apresenta instruções.
 
 - **Android ou computador:** procurar a opção de instalar no navegador compatível.
 - **iPhone/iPad:** no Safari, usar **Partilhar → Adicionar ao ecrã principal**.
 - **Offline:** a primeira visita precisa de internet. Interface e dados ficam em cache; fotos históricas são guardadas quando consultadas. Imagens ainda não vistas podem não estar disponíveis offline.
-- **Atualizações:** quando surgir o aviso de nova versão, escolher **Atualizar**. Favoritos e preferências permanecem no navegador.
+- **Atualizações:** a aplicação recebe a nova versão quando está online; a página pode recarregar para concluir a atualização. Favoritos e preferências permanecem no navegador.
 
 Não é necessário descarregar executáveis ou criar uma conta.
 
@@ -71,19 +71,19 @@ Consulte a [metodologia](docs/METHODOLOGY.md) antes de atualizar o modelo ou int
 
 ## Fontes e agradecimentos
 
-O arquivo visual assenta sobretudo no trabalho de **projetos terceiros**. Agradecemos especialmente a [@comidas.ipb](https://www.instagram.com/comidas.ipb/) e [@comidasdoipb](https://www.instagram.com/comidasdoipb/), e a todas as pessoas que dedicaram tempo a fotografar e partilhar as refeições.
+O arquivo visual assenta sobretudo no trabalho de **projetos terceiros**. Agradecemos especialmente a [@comidasdoipb](https://www.instagram.com/comidasdoipb/), e a todas as pessoas que dedicaram tempo a fotografar e partilhar as refeições.
 
-A Ajuda Cantina organiza essas contribuições para facilitar a consulta; **não reivindica a autoria das fotografias**. Cada ficha mantém o crédito e a publicação de origem. Datas, ingredientes, receitas ou alergénios desconhecidos permanecem sem confirmação. Categorias editoriais ajudam a pesquisar, mas não substituem informação alimentar oficial.
+A ajuda.cantina organiza essas contribuições para facilitar a consulta; **não reivindica a autoria das fotografias**. Cada ficha mantém o crédito e a publicação de origem. Datas, ingredientes, receitas ou alergénios desconhecidos permanecem sem confirmação. Categorias editoriais ajudam a pesquisar, mas não substituem informação alimentar oficial.
 
 Os direitos sobre imagens e textos pertencem aos respetivos titulares. Os créditos não substituem eventuais autorizações de reutilização. Para pedir correção ou remoção, envie a publicação e o pedido para **ajuda.cantina.unipb@gmail.com**. Obrigado por nos ajudar a respeitar e valorizar as fontes.
 
 ## Privacidade
 
-- Não há conta de utilizador, sincronização de preferências, análise de audiência ou rastreadores adicionados pelo projeto.
+- Não há conta de utilizador ou sincronização de preferências. Google Analytics é opcional e só é carregado após aceitação; a escolha pode ser alterada no rodapé.
 - Favoritos, avaliações, idioma, acessibilidade e planeamento ficam no `localStorage` deste navegador.
-- O aviso de apoio usa `sessionStorage` para não repetir a abertura na mesma aba.
+- A informação de apoio fica apenas no rodapé. A escolha de estatísticas é guardada separadamente dos favoritos.
 - O service worker guarda arquivos públicos e imagens consultadas para uso offline.
-- O botão da página de privacidade apaga as preferências. Para remover também cache e marcador de sessão, limpar os dados do site nas definições do navegador.
+- O botão da página de privacidade apaga as preferências. Para remover também cache offline, limpar os dados do site nas definições do navegador.
 - Fotos são servidas pelo próprio site. Links externos abrem serviços com políticas próprias; o GitHub Pages pode processar dados técnicos inerentes à hospedagem.
 - O contacto por email é opcional. Recebemos apenas o conteúdo enviado para responder à mensagem; não envie credenciais, dados de pagamento ou informação sensível.
 
@@ -140,3 +140,17 @@ Ajuda com fotografias autorizadas, correções, acessibilidade, traduções, doc
 Para apoiar o desenvolvimento ou conversar sobre uma futura migração para servidor com backend e base de dados, use o mesmo email. Toda a colaboração é voluntária; a aplicação continua gratuita. Não existe cobrança, formulário de pagamento ou compromisso automático.
 
 **Obrigado por usar, partilhar e cuidar deste projeto connosco.**
+
+## Descoberta na web
+
+O build gera um guia HTML indexável e um sitemap, com metadados e dados estruturados. A configuração do Search Console, o consentimento do Analytics e as limitações de SEO estão documentados em [docs/SEO.md](docs/SEO.md). Não há promessa de posição nos resultados de pesquisa.
+
+## Mural da comunidade
+
+O mural discreto está acessível no rodapé. Para adicionar uma assinatura autorizada, editar `data/wall.json` com uma lista de objetos `{"name":"Nome autorizado"}`. Não publicar email, contactos privados ou mensagens sem autorização. Não existe formulário público nem banco de dados; cada atualização passa pela revisão e publicação habituais.
+
+## Pesquisa, instalação e horários
+
+A pesquisa tem prioridade na primeira página, permite limpar o texto e fechar o teclado com a tecla de pesquisa. A instalação deixa de ser promovida quando a aplicação está aberta em modo instalado. Os gráficos de movimento usam navegação entre dias, sem menus sobrepostos. O contador de abertura usa o relógio do dispositivo e o fuso de Lisboa; alterações extraordinárias dependem dos serviços oficiais.
+
+O guia de take-away distingue a referência histórica das condições atuais, que devem ser confirmadas nos SAS.
