@@ -1,8 +1,9 @@
+import { formatDate } from './locale-dates.mjs';
 import { normalize, moneyToCents, calculateBudget, lisbonParts, dateKey, isServiceDay, openingStatus, minutesUntilOpening, filterDishes, cleanPreferences } from './core.mjs';
 import { crowdForDay, averageIntensity } from './crowd.mjs';
 import { watchSelects } from './selects.mjs';
 import { startAnalytics, trackPage } from './analytics.mjs';
-import { translate } from './i18n.js';
+import { translate, countLabel } from './i18n.js';
 
 const $ = selector => document.querySelector(selector);
 const $$ = selector => [...document.querySelectorAll(selector)];
@@ -15,8 +16,9 @@ let dishes = [], wall = [], site, prefs, route = 'catalog', category = 'all', se
 let calendarMonth = lisbonParts().month, calendarYear = lisbonParts().year;
 let mealSelection = { lunch:true, dinner:false }, toastTimer, detailId;
 const t = key => translate(prefs?.locale || 'pt-PT',key);
-const currency = cents => new Intl.NumberFormat(prefs.locale,{style:'currency',currency:'EUR'}).format(cents / 100);
-const dateLabel = key => new Intl.DateTimeFormat(prefs.locale,{dateStyle:'medium',timeZone:'UTC'}).format(new Date(`${key}T12:00:00Z`));
+const formatLocale = () => Intl.DateTimeFormat.supportedLocalesOf([prefs.locale]).length ? prefs.locale : 'pt-CV';
+const currency = cents => new Intl.NumberFormat(formatLocale(),{style:'currency',currency:'EUR'}).format(cents / 100);
+const dateLabel = key => formatDate(prefs.locale,{dateStyle:'medium',timeZone:'UTC'},new Date(`${key}T12:00:00Z`));
 const languageCode = () => prefs.locale.startsWith('pt') ? 'pt' : prefs.locale;
 const dishName = dish => dish.translations?.[languageCode()] || dish.name;
 
@@ -62,9 +64,9 @@ function renderCatalog() {
   $('#catalog-subtitle').hidden=!favoriteView;
   $('#catalog-subtitle').textContent = t(favoriteView ? 'favoritesSubtitle' : 'catalogSubtitle');
   const count = favoriteView ? prefs.favorites.length : dishes.length;
-  $('#catalog-total').textContent = `${count} ${t(count === 1 ? 'dish' : 'dishes')}`;
+  $('#catalog-total').textContent = `${count} ${countLabel(prefs.locale,'dishes',count)}`;
   const visible = filterDishes(dishes,{query:search, category, subtype, minRating, onlyFavorites:favoriteView, favorites:prefs.favorites, sort, ratings:prefs.ratings, locale:prefs.locale});
-  $('#results-count').textContent = `${visible.length} ${t(visible.length === 1 ? 'result' : 'results')}`;
+  $('#results-count').textContent = `${visible.length} ${countLabel(prefs.locale,'results',visible.length)}`;
   $('#dish-grid').innerHTML = visible.slice(0,pageLimit).map(dish => {
     const name = escape(dishName(dish)); const favorite = prefs.favorites.includes(dish.id);
     return `<article class="dish-card"><div class="dish-image-wrap"><button class="dish-link" data-detail="${dish.id}" aria-label="${t('details')}: ${name}"><img src="${escape(dish.image)}" alt="${name} · ${escape(dish.credit)}" style="object-position:${escape(dish.imagePosition || 'center')}" width="480" height="640" loading="lazy" decoding="async"></button><span class="category-tag">${t(dish.categories[0])}</span><button class="favorite-btn" data-favorite="${dish.id}" aria-pressed="${favorite}" aria-label="${t(favorite ? 'favoriteRemove' : 'favoriteAdd')}: ${name}"><span aria-hidden="true">${favorite ? '♥' : '♡'}</span></button></div><div class="card-body"><h3><button class="card-title" data-detail="${dish.id}">${name}</button></h3><p class="card-description">${escape(dish.description[languageCode()] || dish.description.pt)}</p><div class="card-bottom"><span>${escape(dish.credit)}</span><span class="rating-small">${prefs.ratings[dish.id] ? `★ ${prefs.ratings[dish.id]}/5 · ${t('myRating')}` : t('noRating')}</span><span class="card-arrow" aria-hidden="true">↗</span></div></div></article>`;
@@ -99,8 +101,8 @@ function renderPlanner() {
 function renderCalendar() {
   const first = (new Date(Date.UTC(calendarYear,calendarMonth,1)).getUTCDay() + 6) % 7;
   const days = new Date(Date.UTC(calendarYear,calendarMonth + 1,0)).getUTCDate();
-  const title = new Intl.DateTimeFormat(prefs.locale,{month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(calendarYear,calendarMonth,1)));
-  let cells = Array.from({length:7},(_,i) => `<span class="weekday">${escape(new Intl.DateTimeFormat(prefs.locale,{weekday:'short',timeZone:'UTC'}).format(new Date(Date.UTC(2024,0,i+1))))}</span>`).join('');
+  const title = formatDate(prefs.locale,{month:'long',year:'numeric',timeZone:'UTC'},new Date(Date.UTC(calendarYear,calendarMonth,1)));
+  let cells = Array.from({length:7},(_,i) => `<span class="weekday">${escape(formatDate(prefs.locale,{weekday:'short',timeZone:'UTC'},new Date(Date.UTC(2024,0,i+1))))}</span>`).join('');
   cells += '<span aria-hidden="true"></span>'.repeat(first);
   for(let day=1; day<=days; day++) {
     const key = dateKey(calendarYear,calendarMonth,day), row = prefs.plan[key];
@@ -120,7 +122,7 @@ function renderBudget() {
   if (!result) $('#budget-summary').innerHTML = `<p class="validation" id="budget-validation">${t('invalidPrices')}</p>`;
   else {
     const lunchPercent = result.total ? result.lunches * values[1] / result.total * 100 : 0;
-    $('#budget-summary').innerHTML = `<span id="budget-validation" class="sr-only"></span><div class="summary-number">${result.meals}</div><p class="summary-label">${t('meals')}</p><div class="budget-bars" aria-hidden="true"><span style="width:${lunchPercent}%"></span><span style="width:${result.total ? 100-lunchPercent : 0}%"></span></div><div class="bar-legend"><span><i class="dot"></i>${result.lunches} ${t('lunches')}</span><span><i class="dot mint"></i>${result.dinners} ${t('dinners')}</span></div><dl class="summary-rows"><div><dt>${t('total')}</dt><dd>${currency(result.total)}</dd></div><div class="topup"><dt>${t('topUp')}</dt><dd>${currency(result.topUp)}</dd></div><div><dt>${t('remaining')}</dt><dd>${currency(result.remaining)}</dd></div></dl><div class="capacity"><small>${t('capacity')}</small><strong>${result.lunchCapacity} ${t('lunches')}</strong> ${t('or')} <strong>${result.dinnerCapacity} ${t('dinners')}</strong></div>`;
+    $('#budget-summary').innerHTML = `<span id="budget-validation" class="sr-only"></span><div class="summary-number">${result.meals}</div><p class="summary-label">${countLabel(prefs.locale,'meals',result.meals)}</p><div class="budget-bars" aria-hidden="true"><span style="width:${lunchPercent}%"></span><span style="width:${result.total ? 100-lunchPercent : 0}%"></span></div><div class="bar-legend"><span><i class="dot"></i>${result.lunches} ${countLabel(prefs.locale,'lunches',result.lunches)}</span><span><i class="dot mint"></i>${result.dinners} ${countLabel(prefs.locale,'dinners',result.dinners)}</span></div><dl class="summary-rows"><div><dt>${t('total')}</dt><dd>${currency(result.total)}</dd></div><div class="topup"><dt>${t('topUp')}</dt><dd>${currency(result.topUp)}</dd></div><div><dt>${t('remaining')}</dt><dd>${currency(result.remaining)}</dd></div></dl><div class="capacity"><small>${t('capacity')}</small><strong>${result.lunchCapacity} ${countLabel(prefs.locale,'lunches',result.lunchCapacity)}</strong> ${t('or')} <strong>${result.dinnerCapacity} ${countLabel(prefs.locale,'dinners',result.dinnerCapacity)}</strong></div>`;
   }
   $('#scheduled-days').innerHTML = Object.entries(prefs.plan).sort(([a],[b])=>a.localeCompare(b)).map(([key,row])=>`<li><span>${dateLabel(key)}</span><span>${[row.lunch && t('lunch'),row.dinner && t('dinner')].filter(Boolean).join(' + ')}</span></li>`).join('');
 }
@@ -137,17 +139,17 @@ function changeMonth(offset) {
 }
 function crowdMarkup() {
   const slots=crowdForDay(crowdDay);
-  const dayName=new Intl.DateTimeFormat(prefs.locale,{weekday:'long',timeZone:'UTC'}).format(new Date(Date.UTC(2024,0,crowdDay===0?7:crowdDay)));
+  const dayName=formatDate(prefs.locale,{weekday:'long',timeZone:'UTC'},new Date(Date.UTC(2024,0,crowdDay===0?7:crowdDay)));
   return '<section class="panel crowd-panel"><span class="count-pill">'+t('estimate')+'</span><h2>'+t('crowdTitle')+'</h2><p class="help">'+t('crowdCompact')+'</p><div class="crowd-comparison"><div class="crowd-charts">'+(slots.length?slots.map(slot=>'<figure><figcaption><strong>'+t(slot.meal)+'</strong> · '+t('modelMean')+' '+averageIntensity(slot.points)+'/100</figcaption><div class="crowd-bars" aria-hidden="true">'+slot.points.map(([time,value])=>'<div class="crowd-column"><span style="height:'+value+'%"></span><small>'+time+'</small></div>').join('')+'</div><details><summary>'+t('chartTable')+'</summary><table><thead><tr><th>'+t('hours')+'</th><th>'+t('intensity')+'</th></tr></thead><tbody>'+slot.points.map(([time,value])=>'<tr><th scope="row">'+time+'</th><td>'+value+'/100</td></tr>').join('')+'</tbody></table></details></figure>').join(''):'<p>'+t('closed')+'</p>')+'</div><div class="day-carousel"><button id="previous-day" aria-label="'+t('previousDay')+'">←</button><strong role="status">'+dayName+'</strong><button id="next-day" aria-label="'+t('nextDay')+'">→</button></div></div><details class="crowd-method"><summary>'+t('crowdDetails')+'</summary><p>'+t('crowdMethod')+'</p><p>'+t('crowdPeaks')+'</p></details><p class="help">'+t('crowdNoCounts')+'</p><a class="inline-link" href="https://www.google.com/maps/search/Cantina+IPB+Bragan%C3%A7a" target="_blank" rel="noopener noreferrer">Google Maps ↗</a> · <a class="inline-link" href="https://pt.restaurantguru.com/Cantina-IPB-Braganca" target="_blank" rel="noopener noreferrer">Restaurant Guru ↗</a></section>';
 }
 function renderHours() {
   $('#hours-view').innerHTML = `<div class="page-heading"><p class="eyebrow">${t('hoursEyebrow')}</p><h1>${t('hoursTitle')}</h1><p>${t('hoursIntro')}</p></div><div class="hours-grid">${site.venues.map(venue=>`<section class="panel"><span class="status-pill ${openingStatus(venue).open ? 'open' : ''}">${statusText(venue)}</span><h2>${escape(venue.name)}</h2><p class="help">${t(venue.days.includes(6) ? 'monSat' : 'monFri')}</p>${venue.slots.map(([from,to],i)=>`<div class="time-row"><span>${t(i === 0 ? 'lunch' : 'dinner')}</span><strong>${from} – ${to}</strong></div>`).join('')}</section>`).join('')}</div><div class="hours-note"><p class="help">${t('exceptions')}</p><p class="help">${t('verifiedOn')} ${dateLabel(site.verifiedOn)} · <a class="inline-link" href="${site.officialUrl}" target="_blank" rel="noopener noreferrer">${t('officialHours')}</a></p></div><section class="panel"><h2>${t("takeaway")}</h2><p>${t("takeawayBody")}</p><p class="help">${t("takeawayHistory")}</p><a class="inline-link" href="https://webdocs.ipb.pt/portal/download?docId=23072">Despacho 109/IPB/2020 ↗</a> · <a class="inline-link" href="${site.officialUrl}">SAS ↗</a> · <a class="inline-link" href="${site.bookingUrl}">${t("officialMenu")}</a></section>${crowdMarkup()}`;
 }
 function renderAbout(){
- $('#about-view').innerHTML='<div class="page-heading"><p class="eyebrow">ajuda.cantina</p><h1>'+t('aboutTitle')+'</h1><p>'+t('aboutBody')+'</p></div><div class="about-layout"><section class="panel"><h2>'+t('communityTitle')+'</h2><p>'+t('independent')+'</p><p>'+t('supportBody')+'</p><a class="inline-link" href="mailto:ajuda.cantina.unipb@gmail.com">ajuda.cantina.unipb@gmail.com</a></section><section class="panel"><h2>'+t('thanksSources')+'</h2><p>'+t('thanksSourcesBody')+'</p><div class="source-links"><a href="https://www.instagram.com/comidasdoipb/" target="_blank" rel="noopener noreferrer">@comidasdoipb ↗</a></div><p>'+t('rightsBody')+'</p></section><section class="panel"><h2>'+t('officialInfo')+'</h2><p>'+t('priceTimingBody')+'</p><div class="source-links"><a href="'+site.officialUrl+'" target="_blank" rel="noopener noreferrer">SAS-IPB ↗</a><a href="'+site.bookingUrl+'" target="_blank" rel="noopener noreferrer">'+t('officialMenu')+'</a></div></section><section class="panel"><h2>'+t('crowdTitle')+'</h2><p>'+t('crowdMethod')+'</p><p>'+t('crowdNoCounts')+'</p><a class="inline-link" href="#hours">'+t('seeHours')+'</a></section></div>';
+ $('#about-view').innerHTML='<div class="page-heading"><p class="eyebrow">ajuda.cantina</p><h1>'+t('aboutTitle')+'</h1><p>'+t('aboutBody')+'</p></div><div class="about-layout"><section class="panel"><h2>'+t('communityTitle')+'</h2><p>'+t('independent')+'</p><p>'+t('supportBody')+'</p><a class="inline-link" href="mailto:ajuda.cantina.unipb@proton.me">ajuda.cantina.unipb@proton.me</a></section><section class="panel"><h2>'+t('thanksSources')+'</h2><p>'+t('thanksSourcesBody')+'</p><div class="source-links"><a href="https://www.instagram.com/comidasdoipb/" target="_blank" rel="noopener noreferrer">@comidasdoipb ↗</a></div><p>'+t('rightsBody')+'</p></section><section class="panel"><h2>'+t('officialInfo')+'</h2><p>'+t('priceTimingBody')+'</p><div class="source-links"><a href="'+site.officialUrl+'" target="_blank" rel="noopener noreferrer">SAS-IPB ↗</a><a href="'+site.bookingUrl+'" target="_blank" rel="noopener noreferrer">'+t('officialMenu')+'</a></div></section><section class="panel"><h2>'+t('crowdTitle')+'</h2><p>'+t('crowdMethod')+'</p><p>'+t('crowdNoCounts')+'</p><a class="inline-link" href="#hours">'+t('seeHours')+'</a></section></div>';
 }
 function renderPrivacy(){
- $('#privacy-view').innerHTML='<div class="page-heading"><p class="eyebrow">ajuda.cantina</p><h1>'+t('privacy')+'</h1><p>'+t('privacyIntro')+'</p></div><div class="about-layout"><section class="panel"><h2>'+t('analyticsTitle')+'</h2><p>'+t('analyticsPrivacy')+'</p><button class="secondary-button" data-analytics="settings">'+t('analyticsSettings')+'</button><h2>'+t('onDevice')+'</h2><p>'+t('privacyBody')+'</p><p>'+t('privacyCache')+'</p><button class="secondary-button" id="delete-data">'+t('clearData')+'</button></section><section class="panel"><h2>'+t('externalServices')+'</h2><p>'+t('privacyExternal')+'</p><a class="inline-link" href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub · '+t('privacy')+'</a></section><section class="panel"><h2>'+t('contactUs')+'</h2><p>'+t('privacyEmail')+'</p><a class="inline-link" href="mailto:ajuda.cantina.unipb@gmail.com">ajuda.cantina.unipb@gmail.com</a></section></div>';
+ $('#privacy-view').innerHTML='<div class="page-heading"><p class="eyebrow">ajuda.cantina</p><h1>'+t('privacy')+'</h1><p>'+t('privacyIntro')+'</p></div><div class="about-layout"><section class="panel"><h2>'+t('analyticsTitle')+'</h2><p>'+t('analyticsPrivacy')+'</p><button class="secondary-button" data-analytics="settings">'+t('analyticsSettings')+'</button><h2>'+t('onDevice')+'</h2><p>'+t('privacyBody')+'</p><p>'+t('privacyCache')+'</p><button class="secondary-button" id="delete-data">'+t('clearData')+'</button></section><section class="panel"><h2>'+t('externalServices')+'</h2><p>'+t('privacyExternal')+'</p><a class="inline-link" href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub · '+t('privacy')+'</a></section><section class="panel"><h2>'+t('contactUs')+'</h2><p>'+t('privacyEmail')+'</p><a class="inline-link" href="mailto:ajuda.cantina.unipb@proton.me">ajuda.cantina.unipb@proton.me</a></section></div>';
 }
 window.addEventListener('scroll',()=>{ $('#back-top').hidden=window.scrollY<600; },{passive:true});
 function navigate({scroll = false} = {}) {
@@ -163,7 +165,7 @@ function navigate({scroll = false} = {}) {
   if (route === 'hours') renderHours();
   if (route === 'about') renderAbout();
   if (route === 'privacy') renderPrivacy();
-  if (route === 'wall') $('#wall-view').innerHTML='<div class="page-heading"><h1>'+t('wall')+'</h1><p>'+t('wallBody')+'</p><a class="inline-link" href="mailto:ajuda.cantina.unipb@gmail.com">ajuda.cantina.unipb@gmail.com</a></div><section class="panel">'+(wall.length?'<ul>'+wall.map(entry=>'<li>'+escape(entry.name)+'</li>').join('')+'</ul>':'<p>'+t('wallEmpty')+'</p>')+'</section>';
+  if (route === 'wall') $('#wall-view').innerHTML='<div class="page-heading"><h1>'+t('wall')+'</h1><p>'+t('wallBody')+'</p><a class="inline-link" href="mailto:ajuda.cantina.unipb@proton.me">ajuda.cantina.unipb@proton.me</a></div><section class="panel">'+(wall.length?'<ul>'+wall.map(entry=>'<li>'+escape(entry.name)+'</li>').join('')+'</ul>':'<p>'+t('wallEmpty')+'</p>')+'</section>';
   if (scroll) { window.scrollTo({top:0,behavior:'instant'}); $('#main').focus({preventScroll:true}); }
 }
 function utility(title,body) {

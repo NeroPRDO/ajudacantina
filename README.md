@@ -40,7 +40,7 @@ A aplicação é gratuita, não exige conta e funciona como um site estático. O
 | Instalar | Adicionar a aplicação ao telemóvel ou computador e consultar conteúdo já guardado sem ligação. |
 | Acessibilidade | Usar teclado, foco visível, menus escuros, texto ampliado, contraste reforçado e movimento reduzido. |
 
-A interface suporta português de Portugal e do Brasil, inglês, francês e espanhol. Nomes de pratos sem tradução conservam o original. **Avaliações coletivas estão em desenvolvimento**; as notas existentes são pessoais, não médias da comunidade.
+A interface suporta português de Portugal e do Brasil, inglês, francês, espanhol, polonês, alemão, italiano e crioulo cabo-verdiano (referência: Santiago). Nomes de pratos sem tradução conservam o original. **Avaliações coletivas estão em desenvolvimento**; as notas existentes são pessoais, não médias da comunidade.
 
 ## Instalar a aplicação
 
@@ -75,7 +75,7 @@ O arquivo visual assenta sobretudo no trabalho de **projetos terceiros**. Agrade
 
 A ajuda.cantina organiza essas contribuições para facilitar a consulta; **não reivindica a autoria das fotografias**. Cada ficha mantém o crédito e a publicação de origem. Datas, ingredientes, receitas ou alergénios desconhecidos permanecem sem confirmação. Categorias editoriais ajudam a pesquisar, mas não substituem informação alimentar oficial.
 
-Os direitos sobre imagens e textos pertencem aos respetivos titulares. Os créditos não substituem eventuais autorizações de reutilização. Para pedir correção ou remoção, envie a publicação e o pedido para **ajuda.cantina.unipb@gmail.com**. Obrigado por nos ajudar a respeitar e valorizar as fontes.
+Os direitos sobre imagens e textos pertencem aos respetivos titulares. Os créditos não substituem eventuais autorizações de reutilização. Para pedir correção ou remoção, envie a publicação e o pedido para **ajuda.cantina.unipb@proton.me**. Obrigado por nos ajudar a respeitar e valorizar as fontes.
 
 ## Privacidade
 
@@ -135,7 +135,7 @@ A configuração usa permissões mínimas, limites de execução e controle de c
 
 ## Contribuir
 
-Ajuda com fotografias autorizadas, correções, acessibilidade, traduções, documentação ou desenvolvimento é muito bem-vinda. Abra uma [issue](https://github.com/NeroPRDO/ajudacantina/issues) ou entre em contacto por **ajuda.cantina.unipb@gmail.com**.
+Ajuda com fotografias autorizadas, correções, acessibilidade, traduções, documentação ou desenvolvimento é muito bem-vinda. Abra uma [issue](https://github.com/NeroPRDO/ajudacantina/issues) ou entre em contacto por **ajuda.cantina.unipb@proton.me**.
 
 Para apoiar o desenvolvimento ou conversar sobre uma futura migração para servidor com backend e base de dados, use o mesmo email. Toda a colaboração é voluntária; a aplicação continua gratuita. Não existe cobrança, formulário de pagamento ou compromisso automático.
 
@@ -154,3 +154,7 @@ O mural discreto está acessível no rodapé. Para adicionar uma assinatura auto
 A pesquisa tem prioridade na primeira página, permite limpar o texto e fechar o teclado com a tecla de pesquisa. A instalação deixa de ser promovida quando a aplicação está aberta em modo instalado. Os gráficos de movimento usam navegação entre dias, sem menus sobrepostos. O contador de abertura usa o relógio do dispositivo e o fuso de Lisboa; alterações extraordinárias dependem dos serviços oficiais.
 
 O guia de take-away distingue a referência histórica das condições atuais, que devem ser confirmadas nos SAS.
+
+### Traduções
+
+As traduções adicionais estão em `src/locales-extra.mjs`. A variante de referência do crioulo cabo-verdiano é Santiago (`kea-CV`); outras ilhas podem usar formas diferentes. Esta tradução inicial está aberta à revisão por falantes da comunidade. Nomes de pratos e salas preservam as designações das fontes. O seletor mostra nomes completos e mantém siglas no cabeçalho.

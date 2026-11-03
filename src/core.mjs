@@ -40,7 +40,7 @@ export function cleanPreferences(raw, ids, site) {
   const favorites = Array.isArray(raw?.favorites) ? [...new Set(raw.favorites.filter(id => valid.has(id)))] : [];
   const ratings = Object.fromEntries(Object.entries(raw?.ratings || {}).filter(([id,n]) => valid.has(id) && Number.isInteger(n) && n >= 1 && n <= 5));
   const plan = Object.fromEntries(Object.entries(raw?.plan || {}).filter(([key,row]) => row && typeof row === 'object' && isServiceDay(key,site.venues[0],site.closures)).map(([key,row]) => [key,{lunch:row.lunch === true,dinner:row.dinner === true}]).filter(([,row]) => row.lunch || row.dinner));
-  return { favorites, ratings, plan, locale: ['pt-PT','pt-BR','en','fr','es'].includes(raw?.locale) ? raw.locale : 'pt-PT', largeText: raw?.largeText === true, contrast: raw?.contrast === true, balance: moneyToCents(raw?.balance) !== null ? String(raw.balance) : '0', lunch: moneyToCents(raw?.lunch) > 0 ? String(raw.lunch) : '', dinner: moneyToCents(raw?.dinner) > 0 ? String(raw.dinner) : '' };
+  return { favorites, ratings, plan, locale: ['pt-PT','pt-BR','en','fr','es','pl','de','it','kea-CV'].includes(raw?.locale) ? raw.locale : 'pt-PT', largeText: raw?.largeText === true, contrast: raw?.contrast === true, balance: moneyToCents(raw?.balance) !== null ? String(raw.balance) : '0', lunch: moneyToCents(raw?.lunch) > 0 ? String(raw.lunch) : '', dinner: moneyToCents(raw?.dinner) > 0 ? String(raw.dinner) : '' };
 }
 
 // Convert each Lisbon calendar opening to an instant; iteration resolves summer offset.

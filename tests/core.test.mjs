@@ -1,8 +1,9 @@
+import { formatDate } from '../src/locale-dates.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { moneyToCents, calculateBudget, lisbonParts, openingStatus, minutesUntilOpening, filterDishes, cleanPreferences, isServiceDay } from '../src/core.mjs';
-import { dictionaries } from '../src/i18n.js';
+import { dictionaries, countLabel } from '../src/i18n.js';
 const site=JSON.parse(readFileSync(new URL('../data/site.json',import.meta.url)));
 const catalogue=JSON.parse(readFileSync(new URL('../data/dishes.json',import.meta.url)));
 const dishes=[{id:'almondegas',name:'Almôndegas',categories:['meat']},{id:'soja',name:'Soja',translations:{en:'Soya'},categories:['vegetarian']},{id:'lasanha',name:'Lasanha',translations:{en:'Lasagna'},categories:['pasta']}];
@@ -65,3 +66,19 @@ assert.equal(minutesUntilOpening(v,new Date('2026-03-28T22:00:00Z')),2220);
 assert.equal(minutesUntilOpening(v,new Date('2026-10-24T21:00:00Z')),2340);
 assert.equal(minutesUntilOpening(v,new Date('2026-11-02T11:00:00Z'),['2026-11-02']),1500);
 });
+
+test('all nine language choices persist and Polish counts use correct forms',()=>{
+ const expected=['pt-PT','pt-BR','en','fr','es','pl','de','it','kea-CV'];
+ assert.deepEqual(Object.keys(dictionaries).sort(),expected.sort());
+ for(const locale of expected){
+  assert.equal(cleanPreferences({locale},[],site).locale,locale);
+  assert.ok(readFileSync(new URL('../index.html',import.meta.url),'utf8').includes('value="'+locale+'"'));
+  assert.ok(new Intl.DateTimeFormat(locale,{timeZone:'Europe/Lisbon'}).format(new Date('2026-11-03T12:00:00Z')));
+ }
+ assert.equal(countLabel('pl','dishes',2),'wpisy ze zdjęciem');
+ assert.equal(countLabel('pl','dishes',12),'wpisów ze zdjęciem');
+ assert.equal(countLabel('pl','results',1),'znalezione danie');
+ assert.equal(countLabel('pl','lunches',22),'obiady');
+});
+
+test('Creole calendar labels do not depend on browser locale support',()=>{const d=new Date('2026-11-03T12:00:00Z');assert.equal(formatDate('kea-CV',{weekday:'long',timeZone:'UTC'},d),'tersa-fera');assert.match(formatDate('kea-CV',{dateStyle:'medium',timeZone:'UTC'},d),/Nuvenbru/);});

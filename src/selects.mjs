@@ -30,14 +30,15 @@ export function enhanceSelects(root=document) {
     labelNode?.querySelectorAll('select,.choice').forEach(node=>node.remove());
     const label=labelNode?.textContent.trim()||select.getAttribute('aria-label')||select.id;
     const summary=widget.querySelector('summary');
-    const text=select.selectedOptions[0]?.textContent||'';
+    const selected=select.selectedOptions[0];
+    const text=selected?.dataset.short||selected?.textContent||'';
     if(summary.textContent!==text)summary.textContent=text;
-    summary.setAttribute('aria-label',label+': '+text);
+    summary.setAttribute('aria-label',label+': '+(selected?.textContent||text));
     const signature=[...select.options].map(o=>o.value+'|'+o.textContent+'|'+o.selected).join('\n');
     if(widget.dataset.signature!==signature){
       widget.dataset.signature=signature;
       widget.querySelector('.choice-options').replaceChildren(...[...select.options].map(option=>{
-        const button=document.createElement('button');button.type='button';button.dataset.value=option.value;button.textContent=option.textContent;button.disabled=option.disabled;button.setAttribute('aria-pressed',String(option.selected));return button;
+        const button=document.createElement('button');button.type='button';button.dataset.value=option.value;button.textContent=option.textContent;if(option.lang)button.lang=option.lang;button.disabled=option.disabled;button.setAttribute('aria-pressed',String(option.selected));return button;
       }));
     }
   }
